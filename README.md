@@ -1,4 +1,4 @@
 # Trials-of-College
-Like The Game of Life ... but better.
+Like The Game of Life ... but betterrrrrrrrrrrrrrr.
 
 Ideas for Game:
