@@ -3,6 +3,7 @@ Like The Game of Life ... but betterrrrrrrrrrrrrrr.
 
 Ideas for Game: Randomized spaces
   year breaks
+  backpacks instead of cars
   chance spaces
     random bonus / detriment
       scholarships etc based on majors
