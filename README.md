@@ -6,6 +6,7 @@ Ideas for Game: Randomized spaces
   chance spaces
     random bonus / detriment
       scholarships etc based on majors
+      loan reductions 
 
 Goal: 
   
