@@ -9,7 +9,7 @@ Ideas for Game: Randomized spaces
       loan reductions 
 
 Goal: 
-  
+  Have lowest debt, take in your starting salary, subtract taxes and benefits etc.
 
 Start out choosing college:
   Community - fewer loans but salary cap on base salary, Private - , Public - , Ivy - most loans but 
