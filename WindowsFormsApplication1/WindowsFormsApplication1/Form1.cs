@@ -40,6 +40,9 @@ namespace WindowsFormsApplication1
             saveX++;
             saveY = saveX * saveX;
             updateSaveButtonData();
+
+            var newGame = new Game("OofusBoofus");
+
             Console.WriteLine("Saving yeah");
             XYSaveData savesavesave = new XYSaveData(saveX, saveY);
             using (StreamWriter file = File.CreateText("\\Saveysavey.txt"))
@@ -103,7 +106,31 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+    }
+    public class Game
+    {
+        public string Name { get; set; }
+        public int NumPlayers { get; set; }
+        public Player[] Players { get; set; }
+        public int CurrPlayer {get; set;}
+
+        public Game(string name)
+        {
+            Name = name;
+        }
+
     }
 
-
+    public class Player
+    {
+        public string playerName { get; set; }
+        public string playerColor { get; set; }
+        public int boardPosition { get; set; }
+        public int numLoans { get; set; }
+        public int numFriends { get; set; }
+        public int numCredits { get; set; }
+        public bool isCommunityCollege { get; set; }
+        public bool isGraduated { get; set; }
+    }
 }
