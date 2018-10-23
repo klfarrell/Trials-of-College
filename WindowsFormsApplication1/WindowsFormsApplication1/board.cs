@@ -78,18 +78,24 @@ namespace WindowsFormsApplication1
             // Year 2
             gameTiles[23] = new EventTile( "You walk down the hall and see someone eating a chocolate bar. You ask them what they " +
                 "are eating and they scream, RECTANGLES. Gain one friend over your mutual love of spongebob", EventTileType.FRIEND, 1);
-            gameTiles[24] = new EventTile( "", EventTileType.LOAN, 1 ); //TODO: define this Event Tile
-            gameTiles[25] = new EventTile( "", EventTileType.OCC, 1 ); //TODO: define this Event Tile
+            gameTiles[24] = new EventTile( "Your high school ex sends you a snapchat. Okay...That's weird. It's been years since you " +
+                "spoke. But fine. You decide (after waiting an appropriate amount of time so as to not seem too eager) to open it. " +
+                "You click the snap and are faced with a horrible, awkward photo of you from your middle school yearbook captioned: \"Yikes.\" " +
+                " Yikes indeed. Take out $1000 in loans to cover your ...juice bill as you try to forget about your problems.", EventTileType.LOAN, 1000 ); 
+            gameTiles[25] = new EventTile( "Your RA hosts an information session about becoming an RA! You're walking back to your room after class and happen " +
+                "to walk through the lounge to see them sitting there, alone. You say hi and they get so excited thinking that someone wanted to come to the event, that " +
+                "you now feel obligated to stay. Earn one OCC Credit for making their miserable job a little better.", EventTileType.OCC, 1 );
             gameTiles[26] = new EventTile( "Your neighbor just can't seem to handle your passion for heavy metal bagpipping - lose " +
                 "1 friend", EventTileType.FRIEND, -1 );
-            gameTiles[27] = new EventTile( "", EventTileType.LOAN, 1 ); //TODO: define this Event Tile
+            gameTiles[27] = new EventTile( "Your roommate keeps a pecan pie leftover from Thanksgiving in your fridge. How nice of them! " +
+                "It stays there until you move out in May. Take out $3000 in loans to buy a new fridge that's not infested with mold.", EventTileType.LOAN, 3000 );
             gameTiles[28] = new EventTile( "", EventTileType.OCC, 1 ); //TODO: define this Event Tile
             gameTiles[29] = new EventTile( "", EventTileType.FRIEND, 1 ); //TODO: define this Event Tile
             gameTiles[30] = new EventTile( "", EventTileType.LOAN, 1 ); //TODO: define this Event Tile //TODO: define this Event Tile
             gameTiles[31] = new EventTile( "", EventTileType.OCC, 1 ); //TODO: define this Event Tile
             gameTiles[32] = new EventTile( "You tell your friend your true feelings about their significant other - Lose 1 Friend", 
                 EventTileType.FRIEND, -1 );
-            gameTiles[33] = new EventTile( "You stub your toe while watering your exotic spice garden.  You only cry for 20 minutes. " +
+            gameTiles[33] = new EventTile( "You stub your toe while watering your spice garden.  You only cry for 20 minutes. " +
                 " Gain 1 OCC credit for your emotional composure", EventTileType.OCC, 1 );
             gameTiles[34] = new EventTile( "You're walking down the hallway in Generic College Building Hall and you see something " +
                 "written on a white board... You look closer and see the words \"$16.50 / hr for student work!Call 123 - 4567 for " +
