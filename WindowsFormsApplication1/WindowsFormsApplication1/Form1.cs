@@ -41,7 +41,16 @@ namespace WindowsFormsApplication1
             saveY = saveX * saveX;
             updateSaveButtonData();
 
-            var newGame = new Game("OofusBoofus");
+            String game_Name;
+            int num_players;
+            Console.Write("Enter the name of your game:");
+            game_Name = Console.ReadLine();
+
+            Console.Write("Enter the number of players, a number from 2-5:");
+            num_players = Convert.ToInt32(Console.ReadLine());
+
+            var newGame = new Game(game_Name, num_players, 1);
+
 
             Console.WriteLine("Saving yeah");
             XYSaveData savesavesave = new XYSaveData(saveX, saveY);
