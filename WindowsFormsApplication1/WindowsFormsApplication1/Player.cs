@@ -16,5 +16,48 @@ namespace WindowsFormsApplication1
         public int numCredits { get; set; }
         public bool isCommunityCollege { get; set; }
         public bool isGraduated { get; set; }
+
+        public Player(string _playerName, string _playerColor, uint _boardPosition, int _numLoans, int _numFriends, int _numCredits, bool _isCommunityCollege, bool _isGraduated)
+        {
+            playerName = _playerName;
+            playerColor = _playerColor;
+            boardPosition = _boardPosition;
+            numLoans = _numLoans;
+            numFriends = _numFriends;
+            numCredits = _numCredits;
+            isCommunityCollege = _isCommunityCollege;
+            isGraduated = _isGraduated;
+        }
+
+        public int getLoans()
+        {
+            return numLoans;
+        }
+
+        public int getFriends()
+        {
+            return numFriends;
+        }
+
+        public int getCredits()
+        {
+            return numCredits;
+        }
+
+        public uint getBoardPosition()
+        {
+            return boardPosition;
+        }
+
+        public string getPlayerName()
+        {
+            return playerName;
+        }
+
+        public string getPlayerColor()
+        {
+            return playerColor;
+        }
     }
+
 }

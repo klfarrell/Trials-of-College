@@ -8,15 +8,20 @@ namespace WindowsFormsApplication1
 {
     public class Game
     {
-        public string Name { get; set; }
-        public int NumPlayers { get; set; }
-        public Player[] Players { get; set; }
-        public int CurrPlayer { get; set; }
+        public string name { get; set; }
+        public int numPlayers { get; set; }
+        public Player[] players { get; set; }
+        public int currPlayer { get; set; }
 
-        public Game(string name)
+        public Game(string _name, int _numPlayers, int _currPlayer)
         {
-            Name = name;
+            name = _name;
+            numPlayers = _numPlayers;
+            players = new Player[numPlayers];
+            currPlayer = _currPlayer;
         }
+
+
 
     }
 }
