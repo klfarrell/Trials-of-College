@@ -89,8 +89,12 @@ namespace WindowsFormsApplication1
                 "1 friend", EventTileType.FRIEND, -1 );
             gameTiles[27] = new EventTile( "Your roommate keeps a pecan pie leftover from Thanksgiving in your fridge. How nice of them! " +
                 "It stays there until you move out in May. Take out $3000 in loans to buy a new fridge that's not infested with mold.", EventTileType.LOAN, 3000 );
-            gameTiles[28] = new EventTile( "", EventTileType.OCC, 1 ); //TODO: define this Event Tile
-            gameTiles[29] = new EventTile( "", EventTileType.FRIEND, 1 ); //TODO: define this Event Tile
+            gameTiles[28] = new EventTile( "Your friends enter you into a waffle eating contest without your knowledge" +
+                "you being the good sport you are decide to participate anyway. You absolutely devour the waffles and win" +
+                "first place. Gain 1 OCC credit as everyone is so impressed by your skills", EventTileType.OCC, 1 ); 
+            gameTiles[29] = new EventTile( "A new person on your floor stops into your room to say hi and sees you looking" +
+                "at your newest DND character. You start to sweat as you didn't want people in your dorm to know." +
+                "they look at you and start bonding over their love for dnd. Gain one friend", EventTileType.FRIEND, 1 ); 
             gameTiles[30] = new EventTile( "", EventTileType.LOAN, 1 ); //TODO: define this Event Tile //TODO: define this Event Tile
             gameTiles[31] = new EventTile( "", EventTileType.OCC, 1 ); //TODO: define this Event Tile
             gameTiles[32] = new EventTile( "You tell your friend your true feelings about their significant other - Lose 1 Friend", 
