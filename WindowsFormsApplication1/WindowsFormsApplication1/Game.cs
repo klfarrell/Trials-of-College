@@ -18,28 +18,34 @@ namespace WindowsFormsApplication1
             name = _name;
             numPlayers = _numPlayers;
             players = new Player[numPlayers];
-            int count = 1;
+            int count = 0;
             string college;
-            bool community;
+            bool community = false;
             foreach(var Player in players)
             {
-                String player_Name;
-                String color;
-                Console.Write("Enter player:" + count);
+                string player_Name;
+                string color;
+                int loans = 3000;
+                Console.WriteLine("Enter player:" + count);
                 player_Name = Console.ReadLine();
 
-                Console.Write("What color is your back pack?");
+                Console.WriteLine("What color is your back pack?");
                 color = Console.ReadLine();
 
-                Console.Write("Are you going to community college or four year university, community for community, traditional for 4 year");
-               college = Console.ReadLine();
+                Console.WriteLine("Are you going to community college or four year university, community for community, traditional for 4 year");
+                college = Console.ReadLine();
 
-                if(college.toLower() == "community")
+                //if(college.ToLower() == "community")
+                //{
+                //    community = true;
+                //    loans = 2000;
+                //} 
+                players[count] = new Player(player_Name, color, 0, loans, 0, 0, community, false);
+                if(count <= numPlayers)
                 {
-                    community = true;
-                } 
-                players[count] = Player(player_Name, color, 0, 0, 0, 0, community, false);
-                count++;
+                    count++;
+                }
+                
             }
             currPlayer = _currPlayer;
         }

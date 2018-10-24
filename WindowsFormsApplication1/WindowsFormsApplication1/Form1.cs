@@ -41,25 +41,28 @@ namespace WindowsFormsApplication1
             saveY = saveX * saveX;
             updateSaveButtonData();
 
-            String game_Name;
+            string game_Name;
             int num_players;
-            Console.Write("Enter the name of your game:");
-            game_Name = Console.ReadLine();
+            //Console.WriteLine("Enter the name of your game:");
+            game_Name = this.gameNameText.Text;
 
-            Console.Write("Enter the number of players, a number from 2-5:");
+            //game_Name = Console.ReadLine();
+
+            Console.WriteLine("Enter the number of players, a number from 2-5:");
             num_players = Convert.ToInt32(Console.ReadLine());
 
-            var newGame = new Game(game_Name, num_players, 1);
+            var newGame = new Game(game_Name, 3, 1);
+            Console.WriteLine(newGame.name);
 
 
             Console.WriteLine("Saving yeah");
-            XYSaveData savesavesave = new XYSaveData(saveX, saveY);
-            using (StreamWriter file = File.CreateText("\\Saveysavey.txt"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
+            //XYSaveData savesavesave = new XYSaveData(saveX, saveY);
+            //using (StreamWriter file = File.CreateText("\\Saveysavey.txt"))
+            //{
+            //    JsonSerializer serializer = new JsonSerializer();
                 
-                serializer.Serialize(file, savesavesave);
-            }
+            //    serializer.Serialize(file, savesavesave);
+            //}
         }
 
         private void loadData() {
@@ -99,6 +102,7 @@ namespace WindowsFormsApplication1
 
             // Dont forget to add this bitch in
             this.Controls.Add(newButtonBoi);
+            this.Controls.Add(this.gameNameText);
             // In C sharp, properties can be methods in disguise so we gotta do these again
             // because they do....... something......
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
