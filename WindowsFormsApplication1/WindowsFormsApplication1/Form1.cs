@@ -43,11 +43,17 @@ namespace WindowsFormsApplication1
 
             string game_Name;
             int num_players;
+<<<<<<< HEAD
             //Console.WriteLine("Enter the name of your game:");
             game_Name = this.gameNameText.Text;
 
             //game_Name = Console.ReadLine();
 
+=======
+            Console.WriteLine("Enter the name of your game:");
+            game_Name = Console.ReadLine();
+
+>>>>>>> fcf17610dc375d5c013d098efa0fb51be7d3ed22
             Console.WriteLine("Enter the number of players, a number from 2-5:");
             num_players = Convert.ToInt32(Console.ReadLine());
 
@@ -61,17 +67,41 @@ namespace WindowsFormsApplication1
             //{
             //    JsonSerializer serializer = new JsonSerializer();
                 
+<<<<<<< HEAD
             //    serializer.Serialize(file, savesavesave);
             //}
+=======
+                serializer.Serialize(file, savesavesave);
+            }
+
+            using (StreamWriter file = File.CreateText("\\SaveGame.txt"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+
+                serializer.Serialize(file, newGame);
+            }
+>>>>>>> fcf17610dc375d5c013d098efa0fb51be7d3ed22
         }
 
         private void loadData() {
             XYSaveData data;
+            Game loadGame;
             using (StreamReader file = File.OpenText("\\Saveysavey.txt"))
             {
                 JsonSerializer serializer = new JsonSerializer();
 
                 data = (XYSaveData)serializer.Deserialize(file, typeof(XYSaveData));
+            }
+
+            using (StreamReader file = File.OpenText("\\SaveGame.txt"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+
+                loadGame = (Game)serializer.Deserialize(file, typeof(Game));
+            }
+            if( loadGame != null)
+            {
+                Console.Write("Last saved game is named:" + loadGame?.name);
             }
 
             saveX = data.x;

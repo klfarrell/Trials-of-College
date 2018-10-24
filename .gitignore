@@ -1,0 +1,5 @@
+./WindowsFormsApplication1/WindowsFormsApplication1/bin/*
+./WindowsFormsApplication1/WindowsFormsApplication1/obj/*
+./WindowsFormsApplication1/UnitTestProject1/bin/*
+./WindowsFormsApplication1/UnitTestProject1/obj/*
+.DS_Store
