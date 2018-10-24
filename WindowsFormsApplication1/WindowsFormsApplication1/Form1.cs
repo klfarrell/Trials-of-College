@@ -60,15 +60,34 @@ namespace WindowsFormsApplication1
                 
                 serializer.Serialize(file, savesavesave);
             }
+
+            using (StreamWriter file = File.CreateText("\\SaveGame.txt"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+
+                serializer.Serialize(file, newGame);
+            }
         }
 
         private void loadData() {
             XYSaveData data;
+            Game loadGame;
             using (StreamReader file = File.OpenText("\\Saveysavey.txt"))
             {
                 JsonSerializer serializer = new JsonSerializer();
 
                 data = (XYSaveData)serializer.Deserialize(file, typeof(XYSaveData));
+            }
+
+            using (StreamReader file = File.OpenText("\\SaveGame.txt"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+
+                loadGame = (Game)serializer.Deserialize(file, typeof(Game));
+            }
+            if( loadGame != null)
+            {
+                Console.Write("Last saved game is named:" + loadGame?.name);
             }
 
             saveX = data.x;
