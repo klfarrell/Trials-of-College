@@ -19,11 +19,12 @@ namespace WindowsFormsApplication1
             numPlayers = _numPlayers;
 <<<<<<< HEAD
             players = new Player[numPlayers];
-            int count = 0;
+            int count = 1;
             string college;
-            bool community = false;
+            bool community;
             foreach(var Player in players)
             {
+<<<<<<< HEAD
                 string player_Name;
                 string color;
                 int loans = 3000;
@@ -38,23 +39,28 @@ namespace WindowsFormsApplication1
                 String color;
 >>>>>>> fcf17610dc375d5c013d098efa0fb51be7d3ed22
                 Console.WriteLine("Enter player:" + count);
+=======
+                String player_Name;
+                String color;
+                Console.Write("Enter player:" + count);
+>>>>>>> parent of b28a282... Add textbox for game name
                 player_Name = Console.ReadLine();
 
-                Console.WriteLine("What color is your back pack?");
+                Console.Write("What color is your back pack?");
                 color = Console.ReadLine();
 
+<<<<<<< HEAD
                 Console.WriteLine("Are you going to community college or four year university, community for community, traditional for 4 year");
 <<<<<<< HEAD
                 college = Console.ReadLine();
+=======
+                Console.Write("Are you going to community college or four year university, community for community, traditional for 4 year");
+               college = Console.ReadLine();
+>>>>>>> parent of b28a282... Add textbox for game name
 
-                //if(college.ToLower() == "community")
-                //{
-                //    community = true;
-                //    loans = 2000;
-                //} 
-                players[count] = new Player(player_Name, color, 0, loans, 0, 0, community, false);
-                if(count <= numPlayers)
+                if(college.toLower() == "community")
                 {
+<<<<<<< HEAD
                     count++;
                 }
                 
@@ -68,6 +74,12 @@ namespace WindowsFormsApplication1
                 players.Add(new Player(player_Name, color, 0, 0, 0, 0, community, false));
                 count++;
 >>>>>>> fcf17610dc375d5c013d098efa0fb51be7d3ed22
+=======
+                    community = true;
+                } 
+                players[count] = Player(player_Name, color, 0, 0, 0, 0, community, false);
+                count++;
+>>>>>>> parent of b28a282... Add textbox for game name
             }
             currPlayer = _currPlayer;
         }

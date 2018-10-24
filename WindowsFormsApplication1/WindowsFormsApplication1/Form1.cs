@@ -41,8 +41,9 @@ namespace WindowsFormsApplication1
             saveY = saveX * saveX;
             updateSaveButtonData();
 
-            string game_Name;
+            String game_Name;
             int num_players;
+<<<<<<< HEAD
 <<<<<<< HEAD
             //Console.WriteLine("Enter the name of your game:");
             game_Name = this.gameNameText.Text;
@@ -55,18 +56,24 @@ namespace WindowsFormsApplication1
 
 >>>>>>> fcf17610dc375d5c013d098efa0fb51be7d3ed22
             Console.WriteLine("Enter the number of players, a number from 2-5:");
+=======
+            Console.Write("Enter the name of your game:");
+            game_Name = Console.ReadLine();
+
+            Console.Write("Enter the number of players, a number from 2-5:");
+>>>>>>> parent of b28a282... Add textbox for game name
             num_players = Convert.ToInt32(Console.ReadLine());
 
-            var newGame = new Game(game_Name, 3, 1);
-            Console.WriteLine(newGame.name);
+            var newGame = new Game(game_Name, num_players, 1);
 
 
             Console.WriteLine("Saving yeah");
-            //XYSaveData savesavesave = new XYSaveData(saveX, saveY);
-            //using (StreamWriter file = File.CreateText("\\Saveysavey.txt"))
-            //{
-            //    JsonSerializer serializer = new JsonSerializer();
+            XYSaveData savesavesave = new XYSaveData(saveX, saveY);
+            using (StreamWriter file = File.CreateText("\\Saveysavey.txt"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
                 
+<<<<<<< HEAD
 <<<<<<< HEAD
             //    serializer.Serialize(file, savesavesave);
             //}
@@ -81,6 +88,10 @@ namespace WindowsFormsApplication1
                 serializer.Serialize(file, newGame);
             }
 >>>>>>> fcf17610dc375d5c013d098efa0fb51be7d3ed22
+=======
+                serializer.Serialize(file, savesavesave);
+            }
+>>>>>>> parent of b28a282... Add textbox for game name
         }
 
         private void loadData() {
@@ -132,7 +143,6 @@ namespace WindowsFormsApplication1
 
             // Dont forget to add this bitch in
             this.Controls.Add(newButtonBoi);
-            this.Controls.Add(this.gameNameText);
             // In C sharp, properties can be methods in disguise so we gotta do these again
             // because they do....... something......
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
