@@ -43,10 +43,10 @@ namespace WindowsFormsApplication1
 
             String game_Name;
             int num_players;
-            Console.Write("Enter the name of your game:");
+            Console.WriteLine("Enter the name of your game:");
             game_Name = Console.ReadLine();
 
-            Console.Write("Enter the number of players, a number from 2-5:");
+            Console.WriteLine("Enter the number of players, a number from 2-5:");
             num_players = Convert.ToInt32(Console.ReadLine());
 
             var newGame = new Game(game_Name, num_players, 1);
