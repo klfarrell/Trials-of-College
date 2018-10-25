@@ -43,25 +43,15 @@ namespace WindowsFormsApplication1
 
             String game_Name;
             int num_players;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            //Console.WriteLine("Enter the name of your game:");
+
             game_Name = this.gameNameText.Text;
+            if(game_Name == null)
+            {
+                Console.WriteLine("Enter your game name: ");
+                game_Name = Console.ReadLine();
+            }
 
-            //game_Name = Console.ReadLine();
-
-=======
-            Console.WriteLine("Enter the name of your game:");
-            game_Name = Console.ReadLine();
-
->>>>>>> fcf17610dc375d5c013d098efa0fb51be7d3ed22
             Console.WriteLine("Enter the number of players, a number from 2-5:");
-=======
-            Console.Write("Enter the name of your game:");
-            game_Name = Console.ReadLine();
-
-            Console.Write("Enter the number of players, a number from 2-5:");
->>>>>>> parent of b28a282... Add textbox for game name
             num_players = Convert.ToInt32(Console.ReadLine());
 
             var newGame = new Game(game_Name, num_players, 1);
@@ -71,13 +61,7 @@ namespace WindowsFormsApplication1
             XYSaveData savesavesave = new XYSaveData(saveX, saveY);
             using (StreamWriter file = File.CreateText("\\Saveysavey.txt"))
             {
-                JsonSerializer serializer = new JsonSerializer();
-                
-<<<<<<< HEAD
-<<<<<<< HEAD
-            //    serializer.Serialize(file, savesavesave);
-            //}
-=======
+                JsonSerializer serializer = new JsonSerializer();               
                 serializer.Serialize(file, savesavesave);
             }
 
@@ -87,11 +71,6 @@ namespace WindowsFormsApplication1
 
                 serializer.Serialize(file, newGame);
             }
->>>>>>> fcf17610dc375d5c013d098efa0fb51be7d3ed22
-=======
-                serializer.Serialize(file, savesavesave);
-            }
->>>>>>> parent of b28a282... Add textbox for game name
         }
 
         private void loadData() {
