@@ -35,6 +35,7 @@
             this.playerStatsText = new System.Windows.Forms.TextBox();
             this.gameNameLabel = new System.Windows.Forms.Label();
             this.playerStatsLabel = new System.Windows.Forms.Label();
+            this.closeStats = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -105,6 +106,17 @@
             this.playerStatsLabel.TabIndex = 2;
             this.playerStatsLabel.Text = "Player Stats:";
             // 
+            // closeStats
+            // 
+            this.closeStats.Location = new System.Drawing.Point(63, 193);
+            this.closeStats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.closeStats.Name = "closeStats";
+            this.closeStats.Size = new System.Drawing.Size(141, 70);
+            this.closeStats.TabIndex = 1;
+            this.closeStats.Text = "Close Stats";
+            this.closeStats.UseVisualStyleBackColor = true;
+            this.closeStats.Click += new System.EventHandler(this.closeStatsClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -113,13 +125,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gameNameText);
-            this.Controls.Add(this.playerStatsText);
             this.Controls.Add(this.statsButton);
-            this.Controls.Add(this.playerStatsLabel);
             this.Controls.Add(this.gameNameLabel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Text = "How Now Brown Cow";
+            this.Text = "The Trials of College: A Game";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +144,7 @@
         private System.Windows.Forms.TextBox playerStatsText;
         private System.Windows.Forms.Label gameNameLabel;
         private System.Windows.Forms.Label playerStatsLabel;
+        private System.Windows.Forms.Button closeStats;
     }
 }
 

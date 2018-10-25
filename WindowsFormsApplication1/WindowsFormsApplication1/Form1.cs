@@ -78,7 +78,10 @@ namespace WindowsFormsApplication1
         {
             string playerStats = "";
             int count = 1;
-            if(currGame != null)
+            this.Controls.Add(this.playerStatsLabel);
+            this.Controls.Add(this.playerStatsText);
+            this.Controls.Remove(this.statsButton);
+            if (currGame != null)
             {
                 foreach (Player player in currGame.players)
                 {
@@ -93,6 +96,15 @@ namespace WindowsFormsApplication1
             {
                 this.playerStatsText.Text = "Please either create a new game or load to view player stats.";
             }
+            this.Controls.Add(this.closeStats);
+        }
+
+        private void closeStatsClick(object sender, EventArgs e)
+        {
+            this.Controls.Remove(this.playerStatsText);
+            this.Controls.Remove(this.playerStatsLabel);
+            this.Controls.Remove(this.closeStats);
+            this.Controls.Add(this.statsButton);
         }
 
         private void loadData() {
