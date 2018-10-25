@@ -14,6 +14,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        public Game currGame;
         public Form1()
         {
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace WindowsFormsApplication1
             num_players = Convert.ToInt32(Console.ReadLine());
 
             var newGame = new Game(game_Name, num_players, 1);
-
+            currGame = newGame;
 
             Console.WriteLine("Saving yeah");
             XYSaveData savesavesave = new XYSaveData(saveX, saveY);
@@ -70,6 +71,27 @@ namespace WindowsFormsApplication1
                 JsonSerializer serializer = new JsonSerializer();
 
                 serializer.Serialize(file, newGame);
+            }
+        }
+
+        private void viewPlayerStats(object sender, EventArgs e)
+        {
+            string playerStats = "";
+            int count = 1;
+            if(currGame != null)
+            {
+                foreach (Player player in currGame.players)
+                {
+                    playerStats += "Player " + count + ": Name: " + player.playerName +
+                        "\r\nColor: " + player.playerColor + "\r\nLoans: " + player.numLoans.ToString() +
+                        "\r\nFriends: " + player.numFriends.ToString() + "\r\nOCC Credit: " + player.numCredits.ToString() + "\r\n";
+                    count++;
+                }
+                this.playerStatsText.Text = playerStats;
+            }
+            else
+            {
+                this.playerStatsText.Text = "Please either create a new game or load to view player stats.";
             }
         }
 

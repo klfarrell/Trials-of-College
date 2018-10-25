@@ -31,6 +31,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.gameNameText = new System.Windows.Forms.TextBox();
+            this.statsButton = new System.Windows.Forms.Button();
+            this.playerStatsText = new System.Windows.Forms.TextBox();
+            this.gameNameLabel = new System.Windows.Forms.Label();
+            this.playerStatsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -46,7 +50,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(63, 193);
+            this.button2.Location = new System.Drawing.Point(63, 119);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 70);
@@ -60,10 +64,46 @@
             this.gameNameText.AllowDrop = true;
             this.gameNameText.Cursor = System.Windows.Forms.Cursors.Cross;
             this.gameNameText.Location = new System.Drawing.Point(256, 39);
-            this.gameNameText.Multiline = true;
             this.gameNameText.Name = "gameNameText";
-            this.gameNameText.Size = new System.Drawing.Size(200, 200);
+            this.gameNameText.Size = new System.Drawing.Size(200, 22);
             this.gameNameText.TabIndex = 1;
+            // 
+            // statsButton
+            // 
+            this.statsButton.Location = new System.Drawing.Point(63, 193);
+            this.statsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.statsButton.Name = "statsButton";
+            this.statsButton.Size = new System.Drawing.Size(141, 70);
+            this.statsButton.TabIndex = 1;
+            this.statsButton.Text = "View Player Stats";
+            this.statsButton.UseVisualStyleBackColor = true;
+            this.statsButton.Click += new System.EventHandler(this.viewPlayerStats);
+            // 
+            // playerStatsText
+            // 
+            this.playerStatsText.AllowDrop = true;
+            this.playerStatsText.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.playerStatsText.Location = new System.Drawing.Point(490, 39);
+            this.playerStatsText.Multiline = true;
+            this.playerStatsText.Name = "playerStatsText";
+            this.playerStatsText.Size = new System.Drawing.Size(200, 200);
+            this.playerStatsText.TabIndex = 1;
+            // 
+            // gameNameLabel
+            // 
+            this.gameNameLabel.Location = new System.Drawing.Point(253, 13);
+            this.gameNameLabel.Name = "gameNameLabel";
+            this.gameNameLabel.Size = new System.Drawing.Size(100, 23);
+            this.gameNameLabel.TabIndex = 3;
+            this.gameNameLabel.Text = "Game Name:";
+            // 
+            // playerStatsLabel
+            // 
+            this.playerStatsLabel.Location = new System.Drawing.Point(487, 13);
+            this.playerStatsLabel.Name = "playerStatsLabel";
+            this.playerStatsLabel.Size = new System.Drawing.Size(100, 23);
+            this.playerStatsLabel.TabIndex = 2;
+            this.playerStatsLabel.Text = "Player Stats:";
             // 
             // Form1
             // 
@@ -73,10 +113,15 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gameNameText);
+            this.Controls.Add(this.playerStatsText);
+            this.Controls.Add(this.statsButton);
+            this.Controls.Add(this.playerStatsLabel);
+            this.Controls.Add(this.gameNameLabel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "How Now Brown Cow";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -84,7 +129,11 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button statsButton;
         private System.Windows.Forms.TextBox gameNameText;
+        private System.Windows.Forms.TextBox playerStatsText;
+        private System.Windows.Forms.Label gameNameLabel;
+        private System.Windows.Forms.Label playerStatsLabel;
     }
 }
 
