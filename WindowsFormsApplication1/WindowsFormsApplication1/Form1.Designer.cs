@@ -28,35 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.gameNameText = new System.Windows.Forms.TextBox();
+            this.playerNumText = new System.Windows.Forms.TextBox();
             this.statsButton = new System.Windows.Forms.Button();
             this.playerStatsText = new System.Windows.Forms.TextBox();
             this.gameNameLabel = new System.Windows.Forms.Label();
+            this.playerNumLabel = new System.Windows.Forms.Label();
             this.playerStatsLabel = new System.Windows.Forms.Label();
             this.closeStats = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(35, 39);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 61);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Holy Cow Brown Now";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(63, 119);
+            this.button2.Location = new System.Drawing.Point(63, 15);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 70);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Save:";
+            this.button2.Text = "Create New Game:";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.saveButtonClicked);
             // 
@@ -69,9 +59,18 @@
             this.gameNameText.Size = new System.Drawing.Size(200, 22);
             this.gameNameText.TabIndex = 1;
             // 
+            // playerNumText
+            // 
+            this.playerNumText.AllowDrop = true;
+            this.playerNumText.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.playerNumText.Location = new System.Drawing.Point(256, 131);
+            this.playerNumText.Name = "playerNumText";
+            this.playerNumText.Size = new System.Drawing.Size(200, 22);
+            this.playerNumText.TabIndex = 1;
+            // 
             // statsButton
             // 
-            this.statsButton.Location = new System.Drawing.Point(63, 193);
+            this.statsButton.Location = new System.Drawing.Point(63, 107);
             this.statsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.statsButton.Name = "statsButton";
             this.statsButton.Size = new System.Drawing.Size(141, 70);
@@ -98,6 +97,14 @@
             this.gameNameLabel.TabIndex = 3;
             this.gameNameLabel.Text = "Game Name:";
             // 
+            // playerNumLabel
+            // 
+            this.playerNumLabel.Location = new System.Drawing.Point(253, 105);
+            this.playerNumLabel.Name = "playerNumLabel";
+            this.playerNumLabel.Size = new System.Drawing.Size(149, 23);
+            this.playerNumLabel.TabIndex = 3;
+            this.playerNumLabel.Text = "Number of Players:";
+            // 
             // playerStatsLabel
             // 
             this.playerStatsLabel.Location = new System.Drawing.Point(487, 13);
@@ -123,10 +130,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1027, 342);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.gameNameText);
+            this.Controls.Add(this.playerNumText);
             this.Controls.Add(this.statsButton);
             this.Controls.Add(this.gameNameLabel);
+            this.Controls.Add(this.playerNumLabel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "The Trials of College: A Game";
@@ -137,12 +145,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button statsButton;
         private System.Windows.Forms.TextBox gameNameText;
         private System.Windows.Forms.TextBox playerStatsText;
+        private System.Windows.Forms.TextBox playerNumText;
         private System.Windows.Forms.Label gameNameLabel;
+        private System.Windows.Forms.Label playerNumLabel;
         private System.Windows.Forms.Label playerStatsLabel;
         private System.Windows.Forms.Button closeStats;
     }
