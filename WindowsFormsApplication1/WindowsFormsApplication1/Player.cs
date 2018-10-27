@@ -16,6 +16,9 @@ namespace WindowsFormsApplication1
         public int numCredits { get; set; }
         public bool isCommunityCollege { get; set; }
         public bool isGraduated { get; set; }
+        public PlayerCharacteristic major { get; set; }
+        public PlayerCharacteristic club { get; set; }
+        public PlayerCharacteristic capstone { get; set; }
 
         public Player(string _playerName, string _playerColor, uint _boardPosition, int _numLoans, int _numFriends, int _numCredits, bool _isCommunityCollege, bool _isGraduated)
         {
