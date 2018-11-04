@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
@@ -12,6 +13,7 @@ namespace WindowsFormsApplication1
         public int numPlayers { get; set; }
         public List<Player> players { get; set; }
         public int currPlayer { get; set; }
+        public Board board = new Board();
 
         public Game(string _name, int _numPlayers, int _currPlayer)
         {
@@ -45,7 +47,40 @@ namespace WindowsFormsApplication1
                 count++;
             }
             currPlayer = _currPlayer;
+            takeTurn(players[0], 0);
         }
+
+        public void takeTurn(Player currentPlayer, int position)
+        {
+            if (currentPlayer.isGraduated != true)
+                {
+
+            
+                Random rnd = new Random();
+                string message = "Click the button below to spin for your turn!";
+                var result = MessageBox.Show(message);
+                if(result == DialogResult.Yes)
+                {
+                    int spinner = rnd.Next(1, 7);
+                    Console.WriteLine("You rolled a :" + spinner);
+                    uint spaces = (uint)spinner;
+                    board.movePlayer(currentPlayer, spaces);
+                    board.getTileAt(currentPlayer.getBoardPosition());
+
+                }
+                else
+                {
+                    int spinner = rnd.Next(1, 7);
+                    Console.WriteLine("You rolled a :" + spinner);
+                    uint spaces = (uint)spinner;
+                    board.movePlayer(currentPlayer, spaces);
+                    board.getTileAt(currentPlayer.getBoardPosition());
+                }
+
+            }
+        }
+
+
 
     }
 }
