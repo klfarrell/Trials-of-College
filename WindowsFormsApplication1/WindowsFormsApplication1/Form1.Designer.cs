@@ -37,6 +37,10 @@
             this.playerNumLabel = new System.Windows.Forms.Label();
             this.playerStatsLabel = new System.Windows.Forms.Label();
             this.closeStats = new System.Windows.Forms.Button();
+            this.gameRulesLabel = new System.Windows.Forms.Label();
+            this.gameRulesText = new System.Windows.Forms.TextBox();
+            this.rulesButton = new System.Windows.Forms.Button();
+            this.closeRules = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -113,6 +117,46 @@
             this.playerStatsLabel.TabIndex = 2;
             this.playerStatsLabel.Text = "Player Stats:";
             // 
+            // rulesButton
+            // 
+            this.rulesButton.Location = new System.Drawing.Point(63, 199);
+            this.rulesButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rulesButton.Name = "rulesButton";
+            this.rulesButton.Size = new System.Drawing.Size(141, 70);
+            this.rulesButton.TabIndex = 1;
+            this.rulesButton.Text = "View Game Rules";
+            this.rulesButton.UseVisualStyleBackColor = true;
+            this.rulesButton.Click += new System.EventHandler(this.viewGameRules);
+            //
+            // gameRulesLabel
+            //
+            this.gameRulesLabel.Location = new System.Drawing.Point(487, 13);
+            this.gameRulesLabel.Name = "gameRulesLabel";
+            this.gameRulesLabel.Size = new System.Drawing.Size(100, 23);
+            this.gameRulesLabel.TabIndex = 2;
+            this.playerStatsLabel.Text = "Game Rules: ";
+            //
+            // gameRulesText
+            //
+            this.gameRulesText.AllowDrop = true;
+            this.gameRulesText.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.gameRulesText.Location = new System.Drawing.Point(490, 39);
+            this.gameRulesText.Multiline = true;
+            this.gameRulesText.Name = "gameRulesText";
+            this.gameRulesText.Size = new System.Drawing.Size(200, 200);
+            this.gameRulesText.TabIndex = 1;
+            // 
+            // closeRules
+            // 
+            this.closeRules.Location = new System.Drawing.Point(63, 193);
+            this.closeRules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.closeRules.Name = "closeRules";
+            this.closeRules.Size = new System.Drawing.Size(141, 70);
+            this.closeRules.TabIndex = 1;
+            this.closeRules.Text = "Close Rules";
+            this.closeRules.UseVisualStyleBackColor = true;
+            this.closeRules.Click += new System.EventHandler(this.closeRulesClick);
+            // 
             // closeStats
             // 
             this.closeStats.Location = new System.Drawing.Point(63, 193);
@@ -135,6 +179,7 @@
             this.Controls.Add(this.statsButton);
             this.Controls.Add(this.gameNameLabel);
             this.Controls.Add(this.playerNumLabel);
+            this.Controls.Add(this.rulesButton);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "The Trials of College: A Game";
@@ -154,6 +199,10 @@
         private System.Windows.Forms.Label playerNumLabel;
         private System.Windows.Forms.Label playerStatsLabel;
         private System.Windows.Forms.Button closeStats;
+        private System.Windows.Forms.Label gameRulesLabel;
+        private System.Windows.Forms.Button rulesButton;
+        private System.Windows.Forms.Button closeRules;
+        private System.Windows.Forms.TextBox gameRulesText;
     }
 }
 

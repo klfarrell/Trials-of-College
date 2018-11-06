@@ -96,6 +96,26 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.statsButton);
         }
 
+        private void viewGameRules(object sender, EventArgs e)
+        {
+            this.Controls.Add(this.gameRulesLabel);
+            this.Controls.Add(this.gameRulesText);
+            this.Controls.Remove(this.rulesButton);
+            this.gameRulesText.Text = "\r\nWELCOME TO THE RULES PAGE\r\ni mean it's real simple, you begin your journey towards the rest of your life\r\n" +        
+                "you know how CVS receipts are long as shit? you're working towards one of those except it costs $100,000.\r\n" +        
+                "To play, you begin by selecting your character name, major, and school choice.\r\n" +               
+                "The first player goes based on who has the lowest test score! You know who you are. Accept it.\r\n" +               
+                "";
+            this.Controls.Add(this.closeRules);
+        }
+        private void closeRulesClick(object sender, EventArgs e)
+        {
+            this.Controls.Remove(this.gameRulesText);
+            this.Controls.Remove(this.gameRulesLabel);
+            this.Controls.Remove(this.closeRules);
+            this.Controls.Add(this.rulesButton);
+        }
+
         private void loadData() {
             Game loadGame;
 
