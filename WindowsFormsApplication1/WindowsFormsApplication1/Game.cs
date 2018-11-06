@@ -7,13 +7,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public class Game
+    public class Game 
     {
         public string name { get; set; }
         public int numPlayers { get; set; }
         public List<Player> players { get; set; }
         public int currPlayer { get; set; }
         public Board board = new Board();
+        public Tile tile = null;//new Tile();
 
         public Game(string _name, int _numPlayers, int _currPlayer)
         {
@@ -52,31 +53,35 @@ namespace WindowsFormsApplication1
 
         public void takeTurn(Player currentPlayer, int position)
         {
-            if (currentPlayer.isGraduated != true)
-                {
+            foreach(Player player in players) { 
+                if (currentPlayer.isGraduated != true)
+                    {
+                        
+                
+                    Random rnd = new Random();
+                    string message = "Click the button below to spin for your turn!";
+                    var result = MessageBox.Show(message);
+                    if(result == DialogResult.Yes)
+                    {
+                        int spinner = rnd.Next(1, 7);
+                        Console.WriteLine("You rolled a :" + spinner);
+                        uint spaces = (uint)spinner;
+                        board.movePlayer(currentPlayer, spaces);
+                        tile = board.getTileAt(currentPlayer.getBoardPosition());
+                        tile.actOnPlayer(player);
 
-            
-                Random rnd = new Random();
-                string message = "Click the button below to spin for your turn!";
-                var result = MessageBox.Show(message);
-                if(result == DialogResult.Yes)
-                {
-                    int spinner = rnd.Next(1, 7);
-                    Console.WriteLine("You rolled a :" + spinner);
-                    uint spaces = (uint)spinner;
-                    board.movePlayer(currentPlayer, spaces);
-                    board.getTileAt(currentPlayer.getBoardPosition());
+                    }
+                    else
+                    {
+                        int spinner = rnd.Next(1, 7);
+                        Console.WriteLine("You rolled a :" + spinner);
+                        uint spaces = (uint)spinner;
+                        board.movePlayer(currentPlayer, spaces);
+                        tile = board.getTileAt(currentPlayer.getBoardPosition());
+                        tile.actOnPlayer(player);
+                    }
 
                 }
-                else
-                {
-                    int spinner = rnd.Next(1, 7);
-                    Console.WriteLine("You rolled a :" + spinner);
-                    uint spaces = (uint)spinner;
-                    board.movePlayer(currentPlayer, spaces);
-                    board.getTileAt(currentPlayer.getBoardPosition());
-                }
-
             }
         }
 
