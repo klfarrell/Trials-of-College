@@ -16,6 +16,8 @@ namespace WindowsFormsApplication1
         public Board board = new Board();
         public Tile tile = null;//new Tile();
 
+        public Game() { }
+
         public Game(string _name, int _numPlayers, int _currPlayer)
         {
             name = _name;
