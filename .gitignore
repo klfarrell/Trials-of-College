@@ -2,4 +2,10 @@
 ./WindowsFormsApplication1/WindowsFormsApplication1/obj/*
 ./WindowsFormsApplication1/UnitTestProject1/bin/*
 ./WindowsFormsApplication1/UnitTestProject1/obj/*
+WindowsFormsApplication1/UnitTestProject1/bin/
+WindowsFormsApplication1/UnitTestProject1/obj/
+WindowsFormsApplication1/WindowsFormsApplication1/obj/
+WindowsFormsApplication1/WindowsFormsApplication1/obj/
+*.cache
+*.suo
 .DS_Store
