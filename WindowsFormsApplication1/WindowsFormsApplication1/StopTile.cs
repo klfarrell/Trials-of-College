@@ -228,13 +228,13 @@ namespace WindowsFormsApplication1
                     thesis[2] = new Capstone( "Write a 20-page thesis not at all related to your major", 5000 );
                     fourYrList[3] = thesis;
 
-                    //Independent Study TODO FILL THESE IN!
+                    //Independent Study
                     PlayerCharacteristic[] indepStudy = new PlayerCharacteristic[5];
-                    indepStudy[0] = new Capstone( "", 10000 );
-                    indepStudy[1] = new Capstone( "", 10000 );
-                    indepStudy[2] = new Capstone( "", 10000 );
-                    indepStudy[3] = new Capstone( "", 10000 );
-                    indepStudy[4] = new Capstone( "", 10000 );
+                    indepStudy[0] = new Capstone( "Conduct an independent study of kookaburra migration patterns", 10000 );
+                    indepStudy[1] = new Capstone( "Conduct an independent study on feminism in 1930's horror film", 10000 );
+                    indepStudy[2] = new Capstone( "Conduct an independent study on satirical western film and race", 10000 );
+                    indepStudy[3] = new Capstone( "Conduct an independent study on the role of cryptography in World War II", 10000 );
+                    indepStudy[4] = new Capstone( "Conduct an independent study of civil engineering safety practices in the 19th century", 10000 );
                     fourYrList[4] = indepStudy;
 
                     break;
