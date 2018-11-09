@@ -60,6 +60,12 @@
     <Compile Include="DisplayContentGenerator.cs" />
     <Compile Include="DisplayableContext.cs" />
     <Compile Include="DisplayContent.cs" />
+    <Compile Include="DummyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyForm.Designer.cs">
+      <DependentUpon>DummyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventTile.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,9 @@
     <Compile Include="TileNode.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="XYSaveData.cs" />
+    <EmbeddedResource Include="DummyForm.resx">
+      <DependentUpon>DummyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
