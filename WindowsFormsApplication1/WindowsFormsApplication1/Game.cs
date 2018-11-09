@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public class Game 
+    public class Game : DisplayableContext
     {
         public string name { get; set; }
         public int numPlayers { get; set; }
@@ -17,6 +17,12 @@ namespace WindowsFormsApplication1
         public Tile tile = null;//new Tile();
 
         public Game() { }
+
+        public Game(List<Player> players) {
+            this.players = players;
+
+            //TODO other important things that need to be constructed
+        }
 
         public Game(string _name, int _numPlayers, int _currPlayer)
         {

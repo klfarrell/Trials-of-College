@@ -13,9 +13,49 @@ namespace WindowsFormsApplication1
             return null;
         }
 
+
         public static DisplayContent GenerateGameContent(Game game)
         {
             return null;
+        }
+
+
+
+        //Private methods to make the shit above easier
+        private static DisplayContent GenerateNormalMenuContent() {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateNameGameContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+
+
+            return content;
+        }
+
+        private static DisplayContent GenerateNumberPlayersContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateLoadGameContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateCreatePlayerContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
         }
 
     }

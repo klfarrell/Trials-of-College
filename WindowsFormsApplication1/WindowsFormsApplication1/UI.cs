@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
 
         // TODO variable the represents the form to communicate with
 
-        public UI Instance
+        public static UI Instance
         {
             get
             {
