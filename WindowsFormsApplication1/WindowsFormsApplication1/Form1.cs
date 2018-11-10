@@ -28,7 +28,12 @@ namespace WindowsFormsApplication1
 
         private void saveButtonClicked(object sender, EventArgs e) {
 
-            String game_Name;
+            Game newGame = new Game();
+            UI.Instance.SetDisplayContext(newGame);
+            UI.Instance.SetForm(this);
+            newGame.setState("ChoosePC");
+
+           /* String game_Name;
             int num_players = 0;
 
             if(this.gameNameText.Text == "")
@@ -61,6 +66,7 @@ namespace WindowsFormsApplication1
 
                 serializer.Serialize(file, newGame);
             }
+            */
         }
 
         private void viewPlayerStats(object sender, EventArgs e)
@@ -86,6 +92,7 @@ namespace WindowsFormsApplication1
                 this.playerStatsText.Text = "Please either create a new game or load to view player stats.";
             }
             this.Controls.Add(this.closeStats);
+            
         }
 
         private void closeStatsClick(object sender, EventArgs e)

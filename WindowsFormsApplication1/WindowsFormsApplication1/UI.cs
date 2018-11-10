@@ -10,7 +10,8 @@ namespace WindowsFormsApplication1
     {
         private static UI _instance;
 
-        private DisplayableContext _context; 
+        private DisplayableContext _context;
+        private Form1 _form;
 
         // TODO variable the represents the form to communicate with
 
@@ -30,11 +31,16 @@ namespace WindowsFormsApplication1
 
         public void SetDisplayContext(DisplayableContext context) {
             _context = context;
-            Update();
+            //Update(); TODO: uncomment
+        }
+
+        public void SetForm(Form1 form)
+        {
+            _form = form;
         }
 
         public void Update() {
-            DisplayContent content;
+            DisplayContent content = null;
             if (_context is Game) {
                 content = DisplayContentGenerator.GenerateGameContent(_context as Game);
             }
@@ -46,6 +52,13 @@ namespace WindowsFormsApplication1
 
             // TODO: Clear the form, take the display content (the buttons, the text boxes, the pictures etc) 
             // and insert them directly into the form
+            //lol gonna try
+            if (content != null)
+            {
+                _form.Controls.Clear();
+                foreach (System.Windows.Forms.Control c in content.Controls)
+                    _form.Controls.Add(c);
+            }
         }
     }
 }

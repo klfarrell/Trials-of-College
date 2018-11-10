@@ -104,10 +104,34 @@ namespace WindowsFormsApplication1
             }
         }
 
+        public void setState( string newState )
+        {
+            _state = newState;
+            onChanged();
+        }
+
         //This needs to get called when anything changes
         public void onChanged()
         {
             UI.Instance.Update();
+        }
+
+        //event handlers!
+        public void setPC_A(object sender, EventArgs e)
+        {
+            //TODO: fill in!
+        }
+
+        //event handlers!
+        public void setPC_B(object sender, EventArgs e)
+        {
+            //TODO: fill in!
+        }
+
+        //event handlers!
+        public void setPC_C(object sender, EventArgs e)
+        {
+            //TODO: fill in!
         }
 
     }
