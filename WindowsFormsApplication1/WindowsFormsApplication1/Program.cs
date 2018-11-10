@@ -17,7 +17,9 @@ namespace WindowsFormsApplication1
             Console.WriteLine("My Dudes!");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form1 theform = new Form1();
+            UI.Instance.SetForm(theform);
+            Application.Run(theform);
         }
     }
 }

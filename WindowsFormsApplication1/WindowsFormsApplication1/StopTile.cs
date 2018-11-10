@@ -8,9 +8,11 @@ namespace WindowsFormsApplication1
 {
     public class StopTile : Tile
     {
-        PlayerCharacteristic[][] fourYrList;
-        PlayerCharacteristic[][] commList;
-        Random rand;
+        private PlayerCharacteristic[][] fourYrList;
+        private PlayerCharacteristic[][] commList;
+        public PlayerCharacteristic[] options;
+        private Game gameRef;
+        private Random rand;
   
         private bool spinForExam( Player p )
         {
@@ -19,7 +21,6 @@ namespace WindowsFormsApplication1
 
         private void chooseCharacteristic( Player p )
         {
-            PlayerCharacteristic[] options;
             int[] categories;
             if ( p.isCommunityCollege )
             {
@@ -44,30 +45,55 @@ namespace WindowsFormsApplication1
                 while ( categories[0] == categories[2] || categories[1] == categories[2] )
                     categories[2] = rand.Next(commList.Length);
 
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < 3; i++)
                     options[i] = fourYrList[categories[i]][rand.Next(fourYrList[categories[i]].Length)];
             }
 
-            //TODO: present user with options here
-            //PlayerCharacteristic finalOption = havePlayerChoose(options);
-            PlayerCharacteristic finalOption = commList[0][0]; //TODO: get rid of this line
-
-            switch( finalOption.getType() )
-            {
-                case CharacteristicType.MAJOR:
-                    p.major = finalOption;
-                    break;
-                case CharacteristicType.CLUB:
-                    p.club = finalOption;
-                    break;
-                case CharacteristicType.CAPSTONE:
-                    p.capstone = finalOption;
-                    break;
-            }
+            gameRef.setState("ChoosePC");  
         }
 
-        public StopTile(int seed)
+        public void SetChosenCharacteristicA(object sender, EventArgs e)
         {
+            SetChosenCharacteristic(0);
+        }
+
+        public void SetChosenCharacteristicB(object sender, EventArgs e)
+        {
+            SetChosenCharacteristic(1);
+        }
+
+        public void SetChosenCharacteristicC(object sender, EventArgs e)
+        {
+            SetChosenCharacteristic(2);
+        }
+
+        private void SetChosenCharacteristic( int index )
+        {
+            switch (options[index].getType())
+            {
+                case CharacteristicType.MAJOR:
+                    gameRef.CurrentPlayer().major = options[index];
+                    break;
+                case CharacteristicType.CLUB:
+                    gameRef.CurrentPlayer().club = options[index];
+                    break;
+                case CharacteristicType.CAPSTONE:
+                    gameRef.CurrentPlayer().capstone = options[index];
+                    break;
+            }
+            string message = "Charactristic Set from index " + index;
+            string caption = gameRef.CurrentPlayer().getPlayerName();
+            caption += options[index].getType() == CharacteristicType.MAJOR ? "'s Major Set to " : options[index].getType() == CharacteristicType.CLUB ? "'s Club Set to" : "'s Capstone Set to ";
+            caption += options[index].getType() == CharacteristicType.MAJOR ? gameRef.CurrentPlayer().major.getText() : options[index].getType() == CharacteristicType.CLUB ? gameRef.CurrentPlayer().club.getText() : gameRef.CurrentPlayer().capstone.getText();
+            System.Windows.Forms.MessageBoxButtons buttons = System.Windows.Forms.MessageBoxButtons.OK;
+            System.Windows.Forms.MessageBox.Show(message, caption, buttons);
+
+            gameRef.setState("Normal");
+        }
+
+        public StopTile(int seed, Game theGame)
+        {
+            gameRef = theGame;
             rand = new Random();
 
             //create player characteristic lists
@@ -146,7 +172,7 @@ namespace WindowsFormsApplication1
                     fourYrList[0] = commList[0] = miscClubs;
 
                     //Intramural Sports
-                    PlayerCharacteristic[] intrSports = new PlayerCharacteristic[6];
+                    PlayerCharacteristic[] intrSports = new PlayerCharacteristic[4];
                     intrSports[0] = new Club( "Club Quidditch", 2000 );
                     intrSports[1] = new Club( "Intramural Golf", 2000 );
                     intrSports[2] = new Club( "Intramural Ultimate Frisbee", 2000 );

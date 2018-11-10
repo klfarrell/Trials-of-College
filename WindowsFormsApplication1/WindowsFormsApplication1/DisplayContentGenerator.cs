@@ -118,6 +118,11 @@ namespace WindowsFormsApplication1
 
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 
+            if (!game.CurrentTile().isStopTile())
+                return null;
+
+            PlayerCharacteristic[] list = ((StopTile)game.CurrentTile()).options;
+
             buttonA.BackColor = System.Drawing.Color.Yellow;
             buttonA.Cursor = System.Windows.Forms.Cursors.Hand;
             buttonA.Font = new System.Drawing.Font("Ink Free", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,7 +133,7 @@ namespace WindowsFormsApplication1
             buttonA.TabIndex = 0;
             buttonA.Text = "Choice A";
             buttonA.UseVisualStyleBackColor = false;
-            buttonA.Click += new System.EventHandler(game.setPC_A);
+            buttonA.Click += new System.EventHandler(((StopTile)game.CurrentTile()).SetChosenCharacteristicA);
 
             buttonB.BackColor = System.Drawing.Color.Yellow;
             buttonB.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -140,19 +145,22 @@ namespace WindowsFormsApplication1
             buttonB.TabIndex = 1;
             buttonB.Text = "Choice B";
             buttonB.UseVisualStyleBackColor = false;
-            buttonB.Click += new System.EventHandler(game.setPC_B);
+            buttonB.Click += new System.EventHandler(((StopTile)game.CurrentTile()).SetChosenCharacteristicB);
 
-            buttonC.BackColor = System.Drawing.Color.Yellow;
-            buttonC.Cursor = System.Windows.Forms.Cursors.Hand;
-            buttonC.Font = new System.Drawing.Font("Ink Free", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            buttonC.ForeColor = System.Drawing.Color.MidnightBlue;
-            buttonC.Location = new System.Drawing.Point(461, 214);
-            buttonC.Name = "buttonC";
-            buttonC.Size = new System.Drawing.Size(117, 47);
-            buttonC.TabIndex = 2;
-            buttonC.Text = "Choice C";
-            buttonC.UseVisualStyleBackColor = false;
-            buttonC.Click += new System.EventHandler(game.setPC_C);
+            if (list.Length > 2)
+            {
+                buttonC.BackColor = System.Drawing.Color.Yellow;
+                buttonC.Cursor = System.Windows.Forms.Cursors.Hand;
+                buttonC.Font = new System.Drawing.Font("Ink Free", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                buttonC.ForeColor = System.Drawing.Color.MidnightBlue;
+                buttonC.Location = new System.Drawing.Point(461, 214);
+                buttonC.Name = "buttonC";
+                buttonC.Size = new System.Drawing.Size(117, 47);
+                buttonC.TabIndex = 2;
+                buttonC.Text = "Choice C";
+                buttonC.UseVisualStyleBackColor = false;
+                buttonC.Click += new System.EventHandler(((StopTile)game.CurrentTile()).SetChosenCharacteristicC);
+            }
 
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.LightYellow;
@@ -163,9 +171,17 @@ namespace WindowsFormsApplication1
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(500, 48);
             label1.TabIndex = 3;
-            //TODO: this should come from the possible player characteristics!
-            label1.Text = "Lots of text to be seen here! Quite a long description of what will be asked...";
-
+            label1.Text = "Hey " + game.CurrentPlayer().getPlayerName() + "! Congratulations on passing your exams and finishing another year of school. Now that you're getting older, it's time to choose a ";
+            label1.Text += list[0].getType() == CharacteristicType.MAJOR ? "Major" : list[0].getType() == CharacteristicType.CLUB ? "Club" : "Capstone Experience";
+            label1.Text += "! Please pick from the following options:\nChoice A) ";
+            label1.Text += list[0].getText();
+            label1.Text += "\nChoice B) ";
+            label1.Text += list[1].getText();
+            if (list.Length > 2)
+            {
+                label1.Text += "\nChoice C) ";
+                label1.Text += list[2].getText();
+            }
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictureBox1.ErrorImage = null;
@@ -189,7 +205,8 @@ namespace WindowsFormsApplication1
 
             content.AddControl(pictureBox1);
             content.AddControl(label1);
-            content.AddControl(buttonC);
+            if (list.Length > 2)
+                content.AddControl(buttonC);
             content.AddControl(buttonB);
             content.AddControl(buttonA);
 

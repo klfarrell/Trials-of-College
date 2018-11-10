@@ -9,9 +9,11 @@ namespace WindowsFormsApplication1
     public class Board
     {
         private Tile[] gameTiles;
+        private Game gameRef;
 
-        public Board()
+        public Board(Game theGame)
         {
+            gameRef = theGame;
             gameTiles = new Tile[64];
 
             // Orientation Week
@@ -73,7 +75,7 @@ namespace WindowsFormsApplication1
                 "out on your resume, and the recruiter asks you a question that's WAY too hard for you to answer. You fumble around " +
                 "with your words before excusing yourself from the table. ...Well at least he still has your resume \"on file.\" " +
                 "Earn 1 OCC Credit for embarrassing yourself and getting blacklisted from this company", EventTileType.OCC, 1 );
-            gameTiles[22] = new StopTile( 0 );
+            gameTiles[22] = new StopTile( 0, gameRef );
 
             // Year 2
             gameTiles[23] = new EventTile( "You walk down the hall and see someone eating a chocolate bar. You ask them what they " +
@@ -110,7 +112,7 @@ namespace WindowsFormsApplication1
             gameTiles[35] = new EventTile( "You wake up from a weekend-long bender to find out from your roommate that you took a " +
                 "leak on your RA’s door - lose 1 OCC credit", EventTileType.OCC, -1 );
             gameTiles[36] = new EventTile( "", EventTileType.LOAN, 1 ); //TODO: define this Event Tile
-            gameTiles[37] = new StopTile( 1 );
+            gameTiles[37] = new StopTile( 1, gameRef );
 
             // Year 3
             gameTiles[38] = new EventTile( "Taxi Service Surge Pricing — Take $1000 in Loans", EventTileType.LOAN, 1000 );
@@ -144,7 +146,7 @@ namespace WindowsFormsApplication1
                 "Again.", EventTileType.OCC, -1 );
             gameTiles[49] = new EventTile( "", EventTileType.FRIEND, 1 ); //TODO: define this Event Tile
             gameTiles[50] = new EventTile( "", EventTileType.LOAN, 1 ); //TODO: define this Event Tile
-            gameTiles[51] = new StopTile( 2 );
+            gameTiles[51] = new StopTile( 2, gameRef );
 
             // Year 4
             gameTiles[52] = new EventTile( "It's super bowl sunday! Your friend invites you and your friends over and asks everyone " +

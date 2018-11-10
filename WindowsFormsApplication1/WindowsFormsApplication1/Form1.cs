@@ -30,8 +30,9 @@ namespace WindowsFormsApplication1
 
             Game newGame = new Game();
             UI.Instance.SetDisplayContext(newGame);
-            UI.Instance.SetForm(this);
-            newGame.setState("ChoosePC");
+            newGame.players = new List<Player>();
+            newGame.players.Add(new Player("Janet", "Green", 51, 0, 0, 0, false, false));
+            newGame.board.getTileAt(newGame.players[newGame.currPlayer].boardPosition).actOnPlayer(newGame.players[newGame.currPlayer]);
 
            /* String game_Name;
             int num_players = 0;

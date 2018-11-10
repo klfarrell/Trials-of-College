@@ -26,12 +26,12 @@ namespace WindowsFormsApplication1
             }
         }
         public UI() {
-
+            _form = null;
         }
 
         public void SetDisplayContext(DisplayableContext context) {
             _context = context;
-            //Update(); TODO: uncomment
+            Update();
         }
 
         public void SetForm(Form1 form)
@@ -50,10 +50,7 @@ namespace WindowsFormsApplication1
                 content = DisplayContentGenerator.GenerateMenuContent(_context as Menu);
             }
 
-            // TODO: Clear the form, take the display content (the buttons, the text boxes, the pictures etc) 
-            // and insert them directly into the form
-            //lol gonna try
-            if (content != null)
+            if (content != null && _form != null)
             {
                 _form.Controls.Clear();
                 foreach (System.Windows.Forms.Control c in content.Controls)

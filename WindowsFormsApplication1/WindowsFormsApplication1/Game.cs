@@ -13,16 +13,29 @@ namespace WindowsFormsApplication1
         public int numPlayers { get; set; }
         public List<Player> players { get; set; }
         public int currPlayer { get; set; }
-        public Board board = new Board();
-        public Tile tile = null;//new Tile();
-        private String _state;
+        public Board board = null;
+        public Tile tile = null;
+        private String _state= "";
 
-        public Game() { }
+        public Game()
+        {
+            board = new Board(this);
+        }
 
         public Game(List<Player> players) {
             this.players = players;
 
             //TODO other important things that need to be constructed
+        }
+
+        public Tile CurrentTile()
+        {
+            return board.getTileAt(players[currPlayer].boardPosition);
+        }
+
+        public Player CurrentPlayer()
+        {
+            return players[currPlayer];
         }
 
         public Game(string _name, int _numPlayers, int _currPlayer)
