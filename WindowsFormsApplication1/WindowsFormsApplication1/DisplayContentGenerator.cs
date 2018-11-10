@@ -8,7 +8,7 @@ namespace WindowsFormsApplication1
 {
     class DisplayContentGenerator
     {
-        public static DisplayContent GenerateMenuContent(Menu menu)
+        public static DisplayContent GenerateMenuContent(Menu menu, ref System.Drawing.Color color)
         {
             if (menu.State.Equals("Normal"))
                 return GenerateNormalMenuContent();
@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        public static DisplayContent GenerateGameContent(Game game)
+        public static DisplayContent GenerateGameContent(Game game, ref System.Drawing.Color color)
         {
             if (game.State.Equals("Normal"))
                 return GenerateNormalGameContent();
@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1
             else if (game.State.Equals("ExamSpin"))
                 return GenerateExamSpinContent();
             else if (game.State.Equals("ChoosePC"))
-                return GenerateChoosePCContent(game);
+                return GenerateChoosePCContent(game, ref color);
             else if (game.State.Equals("DisplayResults"))
                 return GenerateDisplayResultsContent();
             else
@@ -106,7 +106,7 @@ namespace WindowsFormsApplication1
             return content;
         }
 
-        private static DisplayContent GenerateChoosePCContent(Game game)
+        private static DisplayContent GenerateChoosePCContent(Game game, ref System.Drawing.Color color)
         {
             DisplayContent content = new DisplayContent();
 
@@ -201,7 +201,7 @@ namespace WindowsFormsApplication1
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
 
-            //this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            color = System.Drawing.SystemColors.MenuHighlight;
 
             content.AddControl(pictureBox1);
             content.AddControl(label1);

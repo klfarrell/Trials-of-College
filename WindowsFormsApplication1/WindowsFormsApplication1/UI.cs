@@ -41,13 +41,14 @@ namespace WindowsFormsApplication1
 
         public void Update() {
             DisplayContent content = null;
+            System.Drawing.Color color = new System.Drawing.Color();
             if (_context is Game) {
-                content = DisplayContentGenerator.GenerateGameContent(_context as Game);
+                content = DisplayContentGenerator.GenerateGameContent(_context as Game, ref color);
             }
 
             if (_context is Menu)
             {
-                content = DisplayContentGenerator.GenerateMenuContent(_context as Menu);
+                content = DisplayContentGenerator.GenerateMenuContent(_context as Menu, ref color);
             }
 
             if (content != null && _form != null)
@@ -56,6 +57,9 @@ namespace WindowsFormsApplication1
                 foreach (System.Windows.Forms.Control c in content.Controls)
                     _form.Controls.Add(c);
             }
+
+            if (!color.IsEmpty)
+                _form.BackColor = color;
         }
     }
 }
