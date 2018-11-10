@@ -10,7 +10,7 @@ namespace WindowsFormsApplication1
     {
         private PlayerCharacteristic[][] fourYrList;
         private PlayerCharacteristic[][] commList;
-        public PlayerCharacteristic[] options;
+        public PlayerCharacteristic[] options = null;
         private Game gameRef;
         private Random rand;
   
@@ -88,6 +88,7 @@ namespace WindowsFormsApplication1
             System.Windows.Forms.MessageBoxButtons buttons = System.Windows.Forms.MessageBoxButtons.OK;
             System.Windows.Forms.MessageBox.Show(message, caption, buttons);
 
+            options = null;
             gameRef.setState("Normal");
         }
 
