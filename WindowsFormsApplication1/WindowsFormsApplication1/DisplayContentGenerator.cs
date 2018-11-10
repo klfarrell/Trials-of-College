@@ -169,7 +169,14 @@ namespace WindowsFormsApplication1
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictureBox1.ErrorImage = null;
-            pictureBox1.Image = ((System.Drawing.Image)(System.Drawing.Image.FromFile("./images/confused.jpg")));
+            try
+            {
+                pictureBox1.Image = ((System.Drawing.Image)(System.Drawing.Image.FromFile("images/confused.jpg")));
+            }
+            catch( Exception e )
+            {
+                pictureBox1.Image = null;
+            }
             pictureBox1.InitialImage = null;
             pictureBox1.Location = new System.Drawing.Point(516, 34);
             pictureBox1.Name = "pictureBox1";
