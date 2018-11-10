@@ -230,11 +230,11 @@ namespace WindowsFormsApplication1
 
                     //Independent Study
                     PlayerCharacteristic[] indepStudy = new PlayerCharacteristic[5];
-                    indepStudy[0] = new Capstone( "Conduct an independent study of kookaburra migration patterns", 10000 );
-                    indepStudy[1] = new Capstone( "Conduct an independent study on feminism in 1930's horror film", 10000 );
-                    indepStudy[2] = new Capstone( "Conduct an independent study on satirical western film and race", 10000 );
-                    indepStudy[3] = new Capstone( "Conduct an independent study on the role of cryptography in World War II", 10000 );
-                    indepStudy[4] = new Capstone( "Conduct an independent study of civil engineering safety practices in the 19th century", 10000 );
+                    indepStudy[0] = new Capstone( "Conduct an independent study of kookaburra migration patterns", 6000 );
+                    indepStudy[1] = new Capstone( "Conduct an independent study on feminism in 1930's horror film", 7000 );
+                    indepStudy[2] = new Capstone( "Conduct an independent study on satirical western film and race", 6500 );
+                    indepStudy[3] = new Capstone( "Conduct an independent study on the role of cryptography in World War II", 7000 );
+                    indepStudy[4] = new Capstone( "Conduct an independent study of civil engineering safety practices in the 19th century", 6000 );
                     fourYrList[4] = indepStudy;
 
                     break;

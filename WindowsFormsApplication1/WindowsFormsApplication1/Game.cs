@@ -15,6 +15,7 @@ namespace WindowsFormsApplication1
         public int currPlayer { get; set; }
         public Board board = new Board();
         public Tile tile = null;//new Tile();
+        private String _state;
 
         public Game() { }
 
@@ -93,7 +94,21 @@ namespace WindowsFormsApplication1
             }
         }
 
+        public string State
+        {
+            get { return _state; }
+            private set
+            {
+                _state = value;
+                onChanged();
+            }
+        }
 
+        //This needs to get called when anything changes
+        public void onChanged()
+        {
+            UI.Instance.Update();
+        }
 
     }
 }

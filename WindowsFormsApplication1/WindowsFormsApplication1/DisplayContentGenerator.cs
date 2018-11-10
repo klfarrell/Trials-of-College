@@ -10,16 +10,38 @@ namespace WindowsFormsApplication1
     {
         public static DisplayContent GenerateMenuContent(Menu menu)
         {
-            return null;
+            if (menu.State.Equals("Normal"))
+                return GenerateNormalMenuContent();
+            else if (menu.State.Equals("Rules"))
+                return GenerateRulesContent();
+            else if (menu.State.Equals("NameNumber"))
+                return GenerateNameNumberContent();
+            else if (menu.State.Equals("CreatePlayer"))
+                return GenerateCreatePlayerContent();
+            else if (menu.State.Equals("LoadGame"))
+                return GenerateLoadGameContent();
+            else
+                return null;
         }
 
 
         public static DisplayContent GenerateGameContent(Game game)
         {
-            return null;
+            if (game.State.Equals("Normal"))
+                return GenerateNormalGameContent();
+            else if (game.State.Equals("UnitedStatesOfOK"))
+                return GenerateUSOKContent();
+            else if (game.State.Equals("AreYouSure"))
+                return GenerateAreYouSureContent();
+            else if (game.State.Equals("ExamSpin"))
+                return GenerateExamSpinContent();
+            else if (game.State.Equals("ChoosePC"))
+                return GenerateChoosePCContent();
+            else if (game.State.Equals("DisplayResults"))
+                return GenerateDisplayResultsContent();
+            else
+                return null;
         }
-
-
 
         //Private methods to make the shit above easier
         private static DisplayContent GenerateNormalMenuContent() {
@@ -28,23 +50,14 @@ namespace WindowsFormsApplication1
             return content;
         }
 
-        private static DisplayContent GenerateNameGameContent()
-        {
-            DisplayContent content = new DisplayContent();
-
-
-
-            return content;
-        }
-
-        private static DisplayContent GenerateNumberPlayersContent()
+        private static DisplayContent GenerateRulesContent()
         {
             DisplayContent content = new DisplayContent();
 
             return content;
         }
 
-        private static DisplayContent GenerateLoadGameContent()
+        private static DisplayContent GenerateNameNumberContent()
         {
             DisplayContent content = new DisplayContent();
 
@@ -58,5 +71,53 @@ namespace WindowsFormsApplication1
             return content;
         }
 
+        private static DisplayContent GenerateLoadGameContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateNormalGameContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateUSOKContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateAreYouSureContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateExamSpinContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateChoosePCContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateDisplayResultsContent()
+        {
+            DisplayContent content = new DisplayContent();
+
+            return content;
+        }
     }
 }
