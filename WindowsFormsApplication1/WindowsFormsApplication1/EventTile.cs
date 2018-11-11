@@ -14,12 +14,14 @@ namespace WindowsFormsApplication1
         private String text;
         private EventTileType actionType;
         private int actionValue;
+        private Game gameRef;
 
-        public EventTile( String _text, EventTileType _actionType, int _actionValue )
+        public EventTile( String _text, EventTileType _actionType, int _actionValue, Game thegame )
         {
             text = _text;
             actionType = _actionType;
             actionValue = _actionValue;
+            gameRef = thegame;
         }
 
         public String getText()
@@ -27,21 +29,20 @@ namespace WindowsFormsApplication1
             return text;
         }
 
-        public bool actOnPlayer( Player p )
+        public void actOnCurrentPlayer()
         {
             switch( actionType )
             {
                 case EventTileType.LOAN:
-                    p.numLoans += actionValue;
+                    gameRef.CurrentPlayer().numLoans += actionValue;
                     break;
                 case EventTileType.FRIEND:
-                    p.numFriends += actionValue;
+                    gameRef.CurrentPlayer().numFriends += actionValue;
                     break;
                 case EventTileType.OCC:
-                    p.numCredits += actionValue;
+                    gameRef.CurrentPlayer().numCredits += actionValue;
                     break;
             }
-            return true;
         }
 
         public bool isStopTile()

@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
             UI.Instance.SetDisplayContext(newGame);
             newGame.players = new List<Player>();
             newGame.players.Add(new Player("Janet", "Green", 51, 0, 0, 0, false, false));
-            newGame.board.getTileAt(newGame.players[newGame.currPlayer].boardPosition).actOnPlayer(newGame.players[newGame.currPlayer]);
+            newGame.board.getTileAt(newGame.players[newGame.currPlayer].boardPosition).actOnCurrentPlayer();
 
            /* String game_Name;
             int num_players = 0;

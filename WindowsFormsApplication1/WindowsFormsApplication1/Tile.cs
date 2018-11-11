@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
         // Always returns true for EventTile
         // Returns true for StopTile if the player should take another turn
         // Returns false for StopTile if the player should execute this tile again (failed exam)
-        bool actOnPlayer(Player p);
+        void actOnCurrentPlayer();
 
         // Returns true if object class is StopTile
         bool isStopTile();

@@ -13,11 +13,7 @@ namespace WindowsFormsApplication1
         public PlayerCharacteristic[] options = null;
         private Game gameRef;
         private Random rand;
-  
-        private bool spinForExam( Player p )
-        {
-            return true; //TODO: define logic
-        }
+        public int examSpinVal = -1;
 
         private void chooseCharacteristic( Player p )
         {
@@ -50,46 +46,6 @@ namespace WindowsFormsApplication1
             }
 
             gameRef.setState("ChoosePC");  
-        }
-
-        public void SetChosenCharacteristicA(object sender, EventArgs e)
-        {
-            SetChosenCharacteristic(0);
-        }
-
-        public void SetChosenCharacteristicB(object sender, EventArgs e)
-        {
-            SetChosenCharacteristic(1);
-        }
-
-        public void SetChosenCharacteristicC(object sender, EventArgs e)
-        {
-            SetChosenCharacteristic(2);
-        }
-
-        private void SetChosenCharacteristic( int index )
-        {
-            switch (options[index].getType())
-            {
-                case CharacteristicType.MAJOR:
-                    gameRef.CurrentPlayer().major = options[index];
-                    break;
-                case CharacteristicType.CLUB:
-                    gameRef.CurrentPlayer().club = options[index];
-                    break;
-                case CharacteristicType.CAPSTONE:
-                    gameRef.CurrentPlayer().capstone = options[index];
-                    break;
-            }
-            string message = "Charactristic Set from index " + index;
-            string caption = gameRef.CurrentPlayer().getPlayerName();
-            caption += options[index].getType() == CharacteristicType.MAJOR ? "'s Major Set to " : options[index].getType() == CharacteristicType.CLUB ? "'s Club Set to" : "'s Capstone Set to ";
-            caption += options[index].getType() == CharacteristicType.MAJOR ? gameRef.CurrentPlayer().major.getText() : options[index].getType() == CharacteristicType.CLUB ? gameRef.CurrentPlayer().club.getText() : gameRef.CurrentPlayer().capstone.getText();
-            System.Windows.Forms.MessageBoxButtons buttons = System.Windows.Forms.MessageBoxButtons.OK;
-            System.Windows.Forms.MessageBox.Show(message, caption, buttons);
-
-            options = null;
-            gameRef.setState("Normal");
         }
 
         public StopTile(int seed, Game theGame)
@@ -273,20 +229,83 @@ namespace WindowsFormsApplication1
             return "";
         }
 
-        public bool actOnPlayer(Player p)
+        public CharacteristicType getType()
         {
-            if ( spinForExam( p ) )
-            {
-                chooseCharacteristic( p );
-                return true;
-            }
-            else
-                return false;
+            return commList[0][0].getType();
+        }
+
+        public void actOnCurrentPlayer()
+        {
+            examSpinVal = -1;
+            gameRef.setState("ExamSpin");
         }
 
         public bool isStopTile()
         {
             return true;
+        }
+
+        //add event handlers
+        public void SetChosenCharacteristicA(object sender, EventArgs e)
+        {
+            SetChosenCharacteristic(0);
+        }
+
+        public void SetChosenCharacteristicB(object sender, EventArgs e)
+        {
+            SetChosenCharacteristic(1);
+        }
+
+        public void SetChosenCharacteristicC(object sender, EventArgs e)
+        {
+            SetChosenCharacteristic(2);
+        }
+
+        private void SetChosenCharacteristic(int index)
+        {
+            switch (options[index].getType())
+            {
+                case CharacteristicType.MAJOR:
+                    gameRef.CurrentPlayer().major = options[index];
+                    break;
+                case CharacteristicType.CLUB:
+                    gameRef.CurrentPlayer().club = options[index];
+                    break;
+                case CharacteristicType.CAPSTONE:
+                    gameRef.CurrentPlayer().capstone = options[index];
+                    break;
+            }
+            string message = "Charactristic Set from index " + index;
+            string caption = gameRef.CurrentPlayer().getPlayerName();
+            caption += options[index].getType() == CharacteristicType.MAJOR ? "'s Major Set to " : options[index].getType() == CharacteristicType.CLUB ? "'s Club Set to" : "'s Capstone Set to ";
+            caption += options[index].getType() == CharacteristicType.MAJOR ? gameRef.CurrentPlayer().major.getText() : options[index].getType() == CharacteristicType.CLUB ? gameRef.CurrentPlayer().club.getText() : gameRef.CurrentPlayer().capstone.getText();
+            System.Windows.Forms.MessageBoxButtons buttons = System.Windows.Forms.MessageBoxButtons.OK;
+            System.Windows.Forms.MessageBox.Show(message, caption, buttons);
+
+            options = null;
+            //gameRef.setState("Normal"); TODO : switch this back!!!
+            actOnCurrentPlayer();
+
+        }
+
+        public void GetExamSpin(object sender, EventArgs e)
+        {
+            examSpinVal = rand.Next(6) + 1;
+            if (examSpinVal > 2)
+                chooseCharacteristic(gameRef.CurrentPlayer());
+            else
+            {
+                gameRef.usokText = "Oh, bother.  It looks like you only scored a ";
+                gameRef.usokText += examSpinVal + " out of 6 on your exams.  Take time to";
+                gameRef.usokText += " study up before next turn, because you'll have to";
+                gameRef.usokText += " take them again.  Better luck next time, kid, everyone";
+                gameRef.usokText += " will be cheering you on (as long as you didn't go to one of ";
+                gameRef.usokText += "those insanely competitive schools where classmates sabotoge ";
+                gameRef.usokText += "each other's work, but that's another game entirely). Anyway, get";
+                gameRef.usokText += " outta here and don't let me see you face again until you're";
+                gameRef.usokText += " holding up an A+ for me.";
+                gameRef.setState("UnitedStatesOfOK");
+            }
         }
     }
 }

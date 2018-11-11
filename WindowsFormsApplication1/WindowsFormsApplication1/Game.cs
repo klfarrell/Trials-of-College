@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
         public Board board = null;
         public Tile tile = null;
         private String _state= "";
+        public String usokText = "";
 
         public Game()
         {
@@ -90,7 +91,7 @@ namespace WindowsFormsApplication1
                         uint spaces = (uint)spinner;
                         board.movePlayer(currentPlayer, spaces);
                         tile = board.getTileAt(currentPlayer.getBoardPosition());
-                        tile.actOnPlayer(player);
+                        tile.actOnCurrentPlayer();
 
                     }
                     else
@@ -100,7 +101,7 @@ namespace WindowsFormsApplication1
                         uint spaces = (uint)spinner;
                         board.movePlayer(currentPlayer, spaces);
                         tile = board.getTileAt(currentPlayer.getBoardPosition());
-                        tile.actOnPlayer(player);
+                        tile.actOnCurrentPlayer();
                     }
 
                 }
@@ -130,22 +131,10 @@ namespace WindowsFormsApplication1
         }
 
         //event handlers!
-        public void setPC_A(object sender, EventArgs e)
+        public void BackToNormal(object sender, EventArgs e)
         {
-            //TODO: fill in!
+            // State = "Normal"; TODO change this back!!
+            CurrentTile().actOnCurrentPlayer();
         }
-
-        //event handlers!
-        public void setPC_B(object sender, EventArgs e)
-        {
-            //TODO: fill in!
-        }
-
-        //event handlers!
-        public void setPC_C(object sender, EventArgs e)
-        {
-            //TODO: fill in!
-        }
-
     }
 }
