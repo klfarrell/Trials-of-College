@@ -83,7 +83,7 @@ namespace WindowsFormsApplication1
             gameTiles[24] = new EventTile( "Your high school ex sends you a snapchat. Okay...That's weird. It's been years since you " +
                 "spoke. But fine. You decide (after waiting an appropriate amount of time so as to not seem too eager) to open it. " +
                 "You click the snap and are faced with a horrible, awkward photo of you from your middle school yearbook captioned: \"Yikes.\" " +
-                " Yikes indeed. Take out $1000 in loans to cover your ...juice bill as you try to forget about your problems.", EventTileType.LOAN, 1000, gameRef ); 
+                "Yikes indeed. Take out $1000 in loans to cover your ...juice bill as you try to forget about your problems.", EventTileType.LOAN, 1000, gameRef ); 
             gameTiles[25] = new EventTile( "Your RA hosts an information session about becoming an RA! You're walking back to your room after class and happen " +
                 "to walk through the lounge to see them sitting there, alone. You say hi and they get so excited thinking that someone wanted to come to the event, that " +
                 "you now feel obligated to stay. Earn one OCC Credit for making their miserable job a little better.", EventTileType.OCC, 1, gameRef );
@@ -97,8 +97,13 @@ namespace WindowsFormsApplication1
             gameTiles[29] = new EventTile( "A new person on your floor stops into your room to say hi and sees you looking" +
                 "at your newest DND character. You start to sweat as you didn't want people in your dorm to know." +
                 "they look at you and start bonding over their love for dnd. Gain one friend", EventTileType.FRIEND, 1, gameRef ); 
-            gameTiles[30] = new EventTile( "", EventTileType.LOAN, 1, gameRef ); //TODO: define this Event Tile //TODO: define this Event Tile
-            gameTiles[31] = new EventTile( "", EventTileType.OCC, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[30] = new EventTile( "Your professor DEMANDS you download a new software to do a tedious, pointless, "+
+                "and absolutely irrelevant homework assignment. You try to argue with them, saying that you really don't need the "+
+                "$3000 software to do your homework. They laugh at you and say \"My way or the highway, little grasshopper.\" You "+
+                "know this is not a term of endearment and download the software. Don't forget to complain in your end of semester survey!"+
+                "Take out $3000 in loans and call your mom to complain.", EventTileType.LOAN, 3000, gameRef ); 
+            gameTiles[31] = new EventTile("Re-write the Harry Potter Series from MINERVA MCGONAGALLl'S PERSPECTIVE, \"Minerva McGonagall and "+
+                "ALBUS DO SOMETHING! NO, NOT THAT!!!\" Earn one OCC Credit for your creative and more accurate take on the popular series.", EventTileType.OCC, 1, gameRef );
             gameTiles[32] = new EventTile( "You tell your friend your true feelings about their significant other - Lose 1 Friend", 
                 EventTileType.FRIEND, -1, gameRef );
             gameTiles[33] = new EventTile( "You stub your toe while watering your spice garden.  You only cry for 20 minutes. " +
@@ -111,18 +116,31 @@ namespace WindowsFormsApplication1
                 "all that goddamn paint.", EventTileType.LOAN, 4000, gameRef );
             gameTiles[35] = new EventTile( "You wake up from a weekend-long bender to find out from your roommate that you took a " +
                 "leak on your RA’s door - lose 1 OCC credit", EventTileType.OCC, -1, gameRef );
-            gameTiles[36] = new EventTile( "", EventTileType.LOAN, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[36] = new EventTile( "Your roommate moves out of your apartment, breaking their verbal agreement to stay in your lease "+
+                "and leaving you stranded paying for rent yourself. You go into their now empty room and see a chello sitting in the corner. "+
+                "God dammit, Josiah, you can't even clean out your room? Ugh. You pick up the chello and decide to give it a play. "+
+                "You devote yourself to becomming the best chello player you possibly can be, just to spite Josiah. After 2 years, you become the most popular chello "+
+                "player in your college orchestra. You send an invitation to Josiah to your last concert before the year ends. You get on stage, "+
+                "spotlights blind you, but you lock eyes with Josiah. With a sinister smile on your face, you introduce your final song called "+
+                "\"I'm Better With Your Chello, Josiah\" and watch the embarrassed look on Josiah's face. Dock $1000 from your total loans for the "+
+                "satisfaction of revenge and all the money you made from your show.", EventTileType.LOAN, -1000, gameRef );
             gameTiles[37] = new StopTile( 1, gameRef );
 
             // Year 3
             gameTiles[38] = new EventTile( "Taxi Service Surge Pricing — Take $1000 in Loans", EventTileType.LOAN, 1000, gameRef );
-            gameTiles[39] = new EventTile( "", EventTileType.OCC, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[39] = new EventTile( "Take a creative driving class! Gain 1 OCC Credit and the confidence to perform the coveted "+
+                "\"H\" turn you always heard about.", EventTileType.OCC, 1, gameRef );
             gameTiles[40] = new EventTile( "You go to a party! As soon as you walk in, you find yourself zip-tied to Austin. After " +
                 "a while of str8 chillin, Austin tells you he really needs to use the restroom, but you're still zip-tied together! " +
                 "You look for scissors but can only find steak knives. Your hands aren't steady enough for that shit! Gain one friend " +
                 "through the bond of trying not to see their wang.", EventTileType.FRIEND, 1, gameRef );
-            gameTiles[41] = new EventTile( "", EventTileType.LOAN, 1, gameRef ); //TODO: define this Event Tile
-            gameTiles[42] = new EventTile( "", EventTileType.OCC, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[41] = new EventTile( "Jennine invites you to go camping! Sounds like a blast. You agree to go and they ask if you have "+
+                "any equipment. You don't. Oops! Jennine takes you over to the outdoorsy people store and grabs all the gear you'll need for your "+
+                "first time camping. Take out $2000 in loans to cover your weeks supply of hot dogs, marshmallows, a sleeping bag, a luxury tent, "+
+                "a mini grill, and colorful fuzzy socks. Dammit, Jennine.", EventTileType.LOAN, 2000, gameRef );
+            gameTiles[42] = new EventTile( "You decide to go to the gym!!!! Oh my gosh, it's been about 2 years since the last time you went... "+
+                "and you're starting to feel pretty bad about it. You dust off your sneaks and find a pair of shorts that fit. WOW you're out of "+
+                "shape... You run for 17 minutes and gain 1 OCC credit for FINALLY leaving your room", EventTileType.OCC, 1, gameRef ); 
             gameTiles[43] = new EventTile( "", EventTileType.OCC, 1, gameRef ); //TODO: define this Event Tile
             gameTiles[44] = new EventTile( "Remember that Blue Light system that the campus tour guides talked so much about when" +
                 " you were touring campus a few years ago? No? Well, you did remember them last night when you tried to use one and" +
@@ -132,10 +150,11 @@ namespace WindowsFormsApplication1
                 "you take one when he's not looking. He notices one missing and has a surprised look on his face. You ask what's " +
                 "the big deal. He tells you, \"It's gonna be a long eight hours, buddy\". Gain an OCC credit for writing the best " +
                 "poem you have ever written.", EventTileType.OCC, 1, gameRef );
-            gameTiles[46] = new EventTile("For the past, gameRef   4.5 weeks, every time you see your housemate, they give you a new 30 minute " +
+            gameTiles[46] = new EventTile("For the past 4.5 weeks, every time you see your housemate, they give you a new 30 minute " +
                 "lecture on the Amway products that they are trying to sell. You tell them that you just can't take it anymore - " +
                 "lose 1 friend ", EventTileType.FRIEND, -1, gameRef );
-            gameTiles[47] = new EventTile( "", EventTileType.LOAN, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[47] = new EventTile("Awww, a card from Grandma and Grandpa. How sweet! You tear it open and toss the card to the side, " +
+                "extracting the check. Dock $1000 from your loans. Thanks Gram & Gramps!", EventTileType.LOAN, -1000, gameRef ); 
             gameTiles[48] = new EventTile( "Your professor calls on you in class. You didn't even know they knew your name! You don't " +
                 "go to office hours, you've never participated, and you sit in the back corner on your laptop the whole time. How " +
                 "the hell did they figure out who you are? They ask you to go up in front of the class and explain your thoughts " +
