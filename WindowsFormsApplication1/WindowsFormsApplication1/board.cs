@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
             // Orientation Week
             gameTiles[0] = new EventTile( "Go to the Activity Fair - Gain 1 OCC Credit", EventTileType.OCC, 1, gameRef );
             gameTiles[1] = new EventTile( "You go out to a party with Janet and Marty who live on the same floor as you." +
-                "Janet drinks too much - you’re painfully sober.You forget about the Safe Rider pamphlet in your pocket and " +
+                "Janet drinks too much - you’re painfully sober. You forget about the Safe Rider pamphlet in your pocket and " +
                 "call a taxi service to pick up Janet - Take $1000 in loans to pay for the ride", EventTileType.LOAN, 1000, gameRef );
             gameTiles[2] = new EventTile( "Your roommate also likes anime! Gain 1 Friend", EventTileType.FRIEND, 1, gameRef );
             gameTiles[3] = new EventTile( "Go to the first day of volleyball tryouts and realize how unathletic you are.  " +
@@ -47,7 +47,7 @@ namespace WindowsFormsApplication1
                 "14-lbs of cream cheese, 6 cases of Top Ramen (TM), a case of razors (that will probably cut you, but you don’t care " +
                 "because they’re free), a gallon-size jar of peanut butter, a huge bag of Swedish Fish, and a king-size blanket (so " +
                 "soft!).  Take $3000 dollars off your loans.", EventTileType.LOAN, -3000, gameRef );
-            gameTiles[12] = new EventTile( "ou consensually ‘fall asleep’ in someone’s room on your floor - Gain 1 Friend (With " +
+            gameTiles[12] = new EventTile( "You consensually ‘fall asleep’ in someone’s room on your floor - Gain 1 Friend (With " +
                 "Benefits)", EventTileType.FRIEND, 1, gameRef );
             gameTiles[13] = new EventTile( "You are standing next to someone in the line for grilled chicken at the dining hall. " +
                 " It’s taking so long that you get to talking and find out that you have a mutual passion for neurofunk - Gain 1 " +
@@ -109,7 +109,7 @@ namespace WindowsFormsApplication1
             gameTiles[33] = new EventTile( "You stub your toe while watering your spice garden.  You only cry for 20 minutes. " +
                 " Gain 1 OCC credit for your emotional composure", EventTileType.OCC, 1, gameRef );
             gameTiles[34] = new EventTile( "You're walking down the hallway in Generic College Building Hall and you see something " +
-                "written on a white board... You look closer and see the words \"$16.50 / hr for student work!Call 123 - 4567 for " +
+                "written on a white board... You look closer and see the words \"$16.50 / hr for student work! Call 123 - 4567 for " +
                 "details!\" YOU are a student! And YOU need work!! This offer seems enticing... You call the number where they " +
                 "describe what sounds like a really fun summer of painting houses! Boom. You're hooked. You show up on your first " +
                 "day, sign the contract, and find yourself bound to a pyramid scheme. Take out $4000 in loans to cover the cost of " +
@@ -163,8 +163,13 @@ namespace WindowsFormsApplication1
                 "pack break open. YOUR SPAGHETTI IS FALLING ON THE FLOOR! You reach down and try to pick it up and put it back, " +
                 "but like, it's spaghetti! The sauce is everywhere. Lose 1 OCC credit for making an absolute fool of yourself. " +
                 "Again.", EventTileType.OCC, -1, gameRef );
-            gameTiles[49] = new EventTile( "", EventTileType.FRIEND, 1, gameRef ); //TODO: define this Event Tile
-            gameTiles[50] = new EventTile( "", EventTileType.LOAN, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[49] = new EventTile( "You're lonely... You hear about this newfangled \"application\" for finding a date. You "+
+                "decide to download it and give it a try. You begin swiping away on this app and, what do you know! You match with someone "+
+                "with a really hilarious bio with a bunch of puns and references to Always Sunny... You're sold. They send you a message and you meet up! "+
+                "Gain one friend (with benefits).", EventTileType.FRIEND, 1, gameRef );
+            gameTiles[50] = new EventTile( "You end up at a Whole Foods (TM) instead of your typical grocery store. WOW! Everything looks so fresh and "+
+                "good! You grab about 8 items you've never heard of before and head over to the checkout counter. You unload your groceries and the "+
+                "checkout person says \"That will come to $2000.\" Shit. Take out $2000 in loans to cover your new vegan habits.", EventTileType.LOAN, 2000, gameRef ); 
             gameTiles[51] = new StopTile( 2, gameRef );
 
             // Year 4
@@ -172,15 +177,20 @@ namespace WindowsFormsApplication1
                 "to bring different food and drinks, but it turns out only one friend brings food, so you're stuck with 3 pounds of " +
                 "taco dip and 3 large bottles of \"silly juice\". Before the night is over, you've begun drinking an unsafe amount " +
                 "of the juice! After waking up in the morning, you learn that on your way home you fell in mud, tripped up your " +
-                "staircase, and tried to open your dorm room with your Giant Eagle advantage card. To make matters worse, the campus " +
+                "staircase, and tried to open your dorm room with your Giant Eagle atdvantage card (TM). To make matters worse, the campus " +
                 "police find you passed out in the hallway! Uh oh! You call your friend at 4:30am to pick you up from the hospital " +
                 "even though he has to work at 7am. What a guy! Take out $5000 in loans to pay for the hospital bills, and to get " +
                 "your friend some well deserved Chipotle.", EventTileType.LOAN, 5000, gameRef );
-            gameTiles[53] = new EventTile( "", EventTileType.LOAN, 1, gameRef ); //TODO: define this Event Tile
-            gameTiles[54] = new EventTile( "", EventTileType.OCC, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[53] = new EventTile( "UGH Starbucks (TM) brought out their holiday beverages again... So many peppermint mochas! So much "+
+                "caramel! THE CHESTNUT PRALINE LATTES! Take out $1000 in loans to cover your coffee addiction", EventTileType.LOAN, 1000, gameRef );
+            gameTiles[54] = new EventTile( "Help out a Freshman student write their first resume! Earn 1 OCC credit", EventTileType.OCC, 1, gameRef );
             gameTiles[55] = new EventTile( "You find yourself implicated in a hazing investigation - lose 3 OCC credits", EventTileType.OCC, -3, gameRef );
-            gameTiles[56] = new EventTile( "", EventTileType.FRIEND, 1, gameRef ); //TODO: define this Event Tile
-            gameTiles[57] = new EventTile( "", EventTileType.FRIEND, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[56] = new EventTile( "You decide to go out to lunch with your assigned group members for a class. Turns out, "+
+                "they're not the boring, lazy fools you thought they were. You actually hit it off and stay friends after the project is finished! "+
+                "Gain 2 friends.", EventTileType.FRIEND, 2, gameRef );
+            gameTiles[57] = new EventTile( "You stumble across a streamer online playing a game called \"Magic: The Gathering\" and start watching. "+
+                "You stick around for a while and find yourself coming back to watch again the next day. You continue doing so until you start going "+
+                "to your local game store to play IRL. You have a lot of fun! Make 1 new friend to geek out with", EventTileType.FRIEND, 1, gameRef );
             gameTiles[58] = new EventTile( "All of your friends signed leases without you last January, and you needed housing quick, " +
                 "so you signed onto live with three people who you've never met before. The house is low quality, but livable for " +
                 "the first month, but now it's October and the whole house is full of mice that continuoslly scurry through the " +
@@ -197,9 +207,16 @@ namespace WindowsFormsApplication1
                 "for the semester. It turns out that the only utensils you remembered to pack were 6 pairs of chopsticks. Borrow " +
                 "one fork and one spoon from the dining hall for the semester and gain one occ credit for your creativity", 
                 EventTileType.OCC, 1, gameRef );
-            gameTiles[61] = new EventTile( "", EventTileType.FRIEND, 1, gameRef ); //TODO: define this Event Tile
-            gameTiles[62] = new EventTile( "", EventTileType.OCC, 1, gameRef ); //TODO: define this Event Tile
-            gameTiles[63] = new EventTile( "", EventTileType.LOAN, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[61] = new EventTile("You find yourself just sitting staring at this beautiful 42 stories tall educational building for hours. "+
+                "You turn to your left and see another person standing next to you doing the same thing. You bond over your mutual love of the majestic "+
+                "building. Gain 1 friend", EventTileType.FRIEND, 1, gameRef );
+            gameTiles[62] = new EventTile("You're at a new years Lotus concert inebriated by some juice and one of your friends goes missing. "+
+                "You and your group search and search for them and cannot find them. You eventually decide you have to go home. After waking up "+
+                "the next morning, you find out they are in the hospital having gotten hit by a car at 1 in the morning. Gain 1 OCC for a "+
+                "horrifying life experience.", EventTileType.OCC, 1, gameRef );
+            gameTiles[63] = new EventTile( "You and Edna are walking around the neighborhood when you find a pet store with a sign advertising "+
+                "a puppy sale. Oops! You bought a dog. Dammit Edna, why didn't you stop this?! Take out $3000 in loans... "+
+                "But are you really that upset about having a new pupper? No.", EventTileType.LOAN, 1, gameRef );
         }
 
         public Tile getTileAt( uint position )
