@@ -141,7 +141,9 @@ namespace WindowsFormsApplication1
             gameTiles[42] = new EventTile( "You decide to go to the gym!!!! Oh my gosh, it's been about 2 years since the last time you went... "+
                 "and you're starting to feel pretty bad about it. You dust off your sneaks and find a pair of shorts that fit. WOW you're out of "+
                 "shape... You run for 17 minutes and gain 1 OCC credit for FINALLY leaving your room", EventTileType.OCC, 1, gameRef ); 
-            gameTiles[43] = new EventTile( "", EventTileType.OCC, 1, gameRef ); //TODO: define this Event Tile
+            gameTiles[43] = new EventTile( "You dedcide that you truly are a master ninja. You decide to enter in American Ninja Warrior. You make it past the preliminaries," +
+                "and all of your friends are watching you on live TV! As you start you miss the first monkey bar and fall" +
+                "flat on your face. Gain 1 OCC credit for trying", EventTileType.OCC, 1, gameRef ); 
             gameTiles[44] = new EventTile( "Remember that Blue Light system that the campus tour guides talked so much about when" +
                 " you were touring campus a few years ago? No? Well, you did remember them last night when you tried to use one and" +
                 " found out the hard way that they don't actually work - Take out $1000 in loans to replace the contents of your " +
@@ -216,7 +218,7 @@ namespace WindowsFormsApplication1
                 "horrifying life experience.", EventTileType.OCC, 1, gameRef );
             gameTiles[63] = new EventTile( "You and Edna are walking around the neighborhood when you find a pet store with a sign advertising "+
                 "a puppy sale. Oops! You bought a dog. Dammit Edna, why didn't you stop this?! Take out $3000 in loans... "+
-                "But are you really that upset about having a new pupper? No.", EventTileType.LOAN, 1, gameRef );
+                "But are you really that upset about having a new pupper? No.", EventTileType.LOAN, 3000, gameRef );
         }
 
         public Tile getTileAt( uint position )
