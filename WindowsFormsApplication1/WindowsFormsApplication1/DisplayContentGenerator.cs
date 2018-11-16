@@ -11,13 +11,13 @@ namespace WindowsFormsApplication1
         public static DisplayContent GenerateMenuContent(Menu menu, ref System.Drawing.Color color)
         {
             if (menu.State.Equals("Normal"))
-                return GenerateNormalMenuContent();
+                return GenerateNormalMenuContent(menu, ref color);
             else if (menu.State.Equals("Rules"))
-                return GenerateRulesContent();
+                return GenerateRulesContent(menu, ref color);
             else if (menu.State.Equals("NameNumber"))
-                return GenerateNameNumberContent();
+                return GenerateNameNumberContent(menu, ref color);
             else if (menu.State.Equals("CreatePlayer"))
-                return GenerateCreatePlayerContent();
+                return GenerateCreatePlayerContent(menu, ref color);
             else if (menu.State.Equals("LoadGame"))
                 return GenerateLoadGameContent();
             else
@@ -43,30 +43,452 @@ namespace WindowsFormsApplication1
                 return null;
         }
 
+
+
+
+
+
         //Private methods to make the shit above easier
-        private static DisplayContent GenerateNormalMenuContent() {
+
+        //MENU CONTENT
+        private static DisplayContent GenerateNormalMenuContent(Menu menu, ref System.Drawing.Color color) {
             DisplayContent content = new DisplayContent();
+
+            var button1 = new System.Windows.Forms.Button();
+            var label1 = new System.Windows.Forms.Label();
+            var button2 = new System.Windows.Forms.Button();
+            var button3 = new System.Windows.Forms.Button();
+
+            // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(464, 175);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(335, 54);
+            button1.TabIndex = 0;
+            button1.Text = "Create Game";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += menu.CreateGameButtonPressed;
+            // 
+            // label1
+            // 
+            //label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(168, 23);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(966, 99);
+            label1.TabIndex = 1;
+            label1.Text = "Welcome to Trials of College, a coming of age tale of a game where \r\nyou can broa" +
+    "den your world view with some of life\'s most \r\nacademic and hedonistic experienc" +
+    "es!";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            
+            // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(464, 298);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(335, 54);
+            button2.TabIndex = 2;
+            button2.Text = "Load Game";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += menu.LoadGameButtonPressed;
+
+            // 
+            // button3
+            // 
+            button3.Location = new System.Drawing.Point(948, 219);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(292, 95);
+            button3.TabIndex = 0;
+            button3.Text = "What are the rules?";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += menu.ViewRulesButtonPressed;
+            
+
+            content.AddControl(button1);
+            content.AddControl(button2);
+            content.AddControl(label1);
+            content.AddControl(button3);
+
+            color = System.Drawing.Color.Goldenrod;
 
             return content;
         }
 
-        private static DisplayContent GenerateRulesContent()
+        private static DisplayContent GenerateRulesContent(Menu menu, ref System.Drawing.Color color)
         {
             DisplayContent content = new DisplayContent();
+            
+            System.Windows.Forms.Label label2 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Button button1 = new System.Windows.Forms.Button();
+
+            //label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.LightGray;
+            label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label2.Font = new System.Drawing.Font("Ink Free", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(39, 39);
+            label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            label2.MaximumSize = new System.Drawing.Size(640, 300);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(611, 56);
+            label2.TabIndex = 3;
+            label2.Text = "\r\nWELCOME TO THE RULES PAGE\r\ni mean it's real simple, you begin your journey towards the rest of your life\r\n" +
+                "you know how CVS receipts are long as shit? you're working towards one of those except it costs $100,000.\r\n" +
+                "To play, you begin by selecting your character name, major, and school choice.\r\n" +
+                "The first player goes based on who has the lowest test score! You know who you are. Accept it.\r\n" +
+                "";
+
+            button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            button1.Font = new System.Drawing.Font("Ink Free", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            button1.Location = new System.Drawing.Point(508, 301);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(142, 68);
+            button1.TabIndex = 4;
+            button1.Text = "Click To Continue";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += new System.EventHandler(menu.CancelButtonPressed);
+
+            color = System.Drawing.Color.Goldenrod;
+
+            content.AddControl(button1);
+            content.AddControl(label2);
+
+            return content;         
+
+            
+        }
+
+        private static DisplayContent GenerateNameNumberContent(Menu menu, ref System.Drawing.Color color)
+        {
+            DisplayContent content = new DisplayContent();
+            color = System.Drawing.Color.Red;
+
+            var button1 = new System.Windows.Forms.Button();
+            var label1 = new System.Windows.Forms.Label();
+            var textBox1 = new System.Windows.Forms.TextBox();
+            var label2 = new System.Windows.Forms.Label();
+            var button2 = new System.Windows.Forms.Button();
+            var button3 = new System.Windows.Forms.Button();
+            var button4 = new System.Windows.Forms.Button();
+            var button5 = new System.Windows.Forms.Button();
+            
+            // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(161, 242);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(141, 43);
+            button1.TabIndex = 0;
+            button1.Text = "2";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += menu.Number2Clicked;
+            if(menu.NumPlayers == 2)
+            {
+                button1.BackColor = System.Drawing.Color.Lime;
+                button1.UseVisualStyleBackColor = false;                
+            }
+            // 
+            // label1
+            // 
+            //label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(93, 69);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(465, 33);
+            label1.TabIndex = 1;
+            label1.Text = "What is the name of your game?";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new System.Drawing.Point(599, 66);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(309, 40);
+            textBox1.TabIndex = 3;
+            textBox1.TextChanged += menu.GameNameChanged;
+            textBox1.Text = menu.GameName;
+            // 
+            // label2
+            // 
+            //label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(226, 163);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(587, 33);
+            label2.TabIndex = 4;
+            label2.Text = "How many players shall play your game?";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(343, 242);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(141, 43);
+            button2.TabIndex = 5;
+            button2.Text = "3";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += menu.Number3Clicked;
+            if (menu.NumPlayers == 3)
+            {
+                button2.BackColor = System.Drawing.Color.Lime;
+                button2.UseVisualStyleBackColor = false;
+            }
+            // 
+            // button3
+            // 
+            button3.Location = new System.Drawing.Point(523, 242);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(141, 43);
+            button3.TabIndex = 6;
+            button3.Text = "4";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += menu.Number4Clicked;
+            if (menu.NumPlayers == 4)
+            {
+                button3.BackColor = System.Drawing.Color.Lime;
+                button3.UseVisualStyleBackColor = false;
+            }
+            // 
+            // button4
+            // 
+            button4.Location = new System.Drawing.Point(706, 242);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(141, 43);
+            button4.TabIndex = 7;
+            button4.Text = "5";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += menu.Number5Clicked;
+            if (menu.NumPlayers == 5)
+            {
+                button4.BackColor = System.Drawing.Color.Lime;
+                button4.UseVisualStyleBackColor = false;
+            }
+            // 
+            // button5
+            // 
+            button5.Location = new System.Drawing.Point(403, 342);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(204, 77);
+            button5.TabIndex = 8;
+            button5.Text = "Next";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += menu.NameNumberNextButtonClicked;
+
+            content.AddControl(button1);
+            content.AddControl(button2);
+            content.AddControl(button3);
+            content.AddControl(button4);
+            content.AddControl(button5);
+            content.AddControl(label1);
+            content.AddControl(label2);
+            content.AddControl(textBox1);
 
             return content;
         }
 
-        private static DisplayContent GenerateNameNumberContent()
+        private static DisplayContent GenerateCreatePlayerContent(Menu menu, ref System.Drawing.Color color)
         {
             DisplayContent content = new DisplayContent();
+            color = System.Drawing.Color.Red;
 
-            return content;
-        }
+            var button1 = new System.Windows.Forms.Button();
+            var label1 = new System.Windows.Forms.Label();
+            var textBox1 = new System.Windows.Forms.TextBox();
+            var label2 = new System.Windows.Forms.Label();
+            var button5 = new System.Windows.Forms.Button();
+            var label3 = new System.Windows.Forms.Label();
+            var button2 = new System.Windows.Forms.Button();
+            var button3 = new System.Windows.Forms.Button();
+            var button4 = new System.Windows.Forms.Button();
+            var button6 = new System.Windows.Forms.Button();
+            var label4 = new System.Windows.Forms.Label();
+            var button7 = new System.Windows.Forms.Button();
+            var button8 = new System.Windows.Forms.Button();
+            
+            // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(139, 155);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(156, 48);
+            button1.TabIndex = 0;
+            button1.Text = "Cerulean";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += menu.CeruleanButtonClicked;
+            //Check if button should be highlighted
+            if (menu.PlayerColor.Equals("Cerulean"))
+            {
+                button1.BackColor = System.Drawing.Color.Lime;
+                button1.UseVisualStyleBackColor = false;
+            }
+            // 
+            // label1
+            // 
+            //label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(16, 80);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(106, 33);
+            label1.TabIndex = 1;
+            label1.Text = "Name:";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new System.Drawing.Point(152, 80);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(309, 40);
+            textBox1.TabIndex = 3;
+            textBox1.TextChanged += menu.PlayerNameBoxChanged;
+            textBox1.Text = menu.PlayerName;
+            // 
+            // label2
+            // 
+            //label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(16, 163);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(99, 33);
+            label2.TabIndex = 4;
+            label2.Text = "Color:";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button5
+            // 
+            button5.Location = new System.Drawing.Point(508, 350);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(204, 77);
+            button5.TabIndex = 8;
+            button5.Text = "Next Player";
+            if(menu.CurrentPlayer == menu.NumPlayers)
+            {
+                button5.Text = "Begin the Game!";
+            }
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += menu.SubmitButtonClicked;
+            // 
+            // label3
+            // 
+            //label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(502, 9);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(232, 33);
+            label3.TabIndex = 9;
+            label3.Text = "Create Player "+ menu.CurrentPlayer;
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(305, 155);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(165, 48);
+            button2.TabIndex = 10;
+            button2.Text = "Vermillion";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += menu.VermillionButtonClicked;
+            if (menu.PlayerColor.Equals("Vermillion"))
+            {
+                button2.BackColor = System.Drawing.Color.Lime;
+                button2.UseVisualStyleBackColor = false;
+            }
+            // 
+            // button3
+            // 
+            button3.Location = new System.Drawing.Point(476, 155);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(156, 48);
+            button3.TabIndex = 11;
+            button3.Text = "Saffron";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += menu.SaffronButtonClicked;
+            if (menu.PlayerColor.Equals("Saffron"))
+            {
+                button3.BackColor = System.Drawing.Color.Lime;
+                button3.UseVisualStyleBackColor = false;
+            }
+            // 
+            // button4
+            // 
+            button4.Location = new System.Drawing.Point(647, 155);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(156, 48);
+            button4.TabIndex = 12;
+            button4.Text = "Viridian";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += menu.ViridianButtonClicked;
+            if (menu.PlayerColor.Equals("Viridian"))
+            {
+                button4.BackColor = System.Drawing.Color.Lime;
+                button4.UseVisualStyleBackColor = false;
+            }
+            // 
+            // button6
+            // 
+            button6.Location = new System.Drawing.Point(822, 155);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(156, 48);
+            button6.TabIndex = 13;
+            button6.Text = "Indigo";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += menu.IndigoButtonClicked;
+            if (menu.PlayerColor.Equals("Indigo"))
+            {
+                button6.BackColor = System.Drawing.Color.Lime;
+                button6.UseVisualStyleBackColor = false;
+            }
+            // 
+            // label4
+            // 
+            //label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(16, 262);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(87, 33);
+            label4.TabIndex = 14;
+            label4.Text = "Path:";
+            label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button7
+            // 
+            button7.Location = new System.Drawing.Point(139, 247);
+            button7.Name = "button7";
+            button7.Size = new System.Drawing.Size(198, 48);
+            button7.TabIndex = 15;
+            button7.Text = "Four Year";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += menu.FourYearButtonClicked;
+            if (!menu.PlayerPath)
+            {
+                button7.BackColor = System.Drawing.Color.Lime;
+                button7.UseVisualStyleBackColor = false;
+            }
+            // 
+            // button8
+            // 
+            button8.Location = new System.Drawing.Point(403, 247);
+            button8.Name = "button8";
+            button8.Size = new System.Drawing.Size(216, 48);
+            button8.TabIndex = 16;
+            button8.Text = "Community";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += menu.CommunityButtonClicked;
+            if (menu.PlayerPath)
+            {
+                button8.BackColor = System.Drawing.Color.Lime;
+                button8.UseVisualStyleBackColor = false;
+            }
 
-        private static DisplayContent GenerateCreatePlayerContent()
-        {
-            DisplayContent content = new DisplayContent();
+            content.AddControl(button1);
+            content.AddControl(button2);
+            content.AddControl(button3);
+            content.AddControl(button4);
+            content.AddControl(button5);
+            content.AddControl(button6);
+            content.AddControl(button7);
+            content.AddControl(button8);
+            content.AddControl(label1);
+            content.AddControl(label2);
+            content.AddControl(label3);
+            content.AddControl(label4);
+            content.AddControl(textBox1);
 
             return content;
         }
@@ -78,6 +500,13 @@ namespace WindowsFormsApplication1
             return content;
         }
 
+
+
+
+
+
+        
+        //GAME CONTENT
         private static DisplayContent GenerateNormalGameContent()
         {
             DisplayContent content = new DisplayContent();
@@ -102,7 +531,7 @@ namespace WindowsFormsApplication1
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(611, 56);
             label2.TabIndex = 3;
-            label2.Text = game.usokText;
+            label2.Text = game.UsokText;
 
             button1.BackColor = System.Drawing.Color.DarkSlateGray;
             button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;

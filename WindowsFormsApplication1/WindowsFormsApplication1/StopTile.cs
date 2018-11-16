@@ -295,15 +295,15 @@ namespace WindowsFormsApplication1
                 chooseCharacteristic(gameRef.CurrentPlayer());
             else
             {
-                gameRef.usokText = "Oh, bother.  It looks like you only scored a ";
-                gameRef.usokText += examSpinVal + " out of 6 on your exams.  Take time to";
-                gameRef.usokText += " study up before next turn, because you'll have to";
-                gameRef.usokText += " take them again.  Better luck next time, kid, everyone";
-                gameRef.usokText += " will be cheering you on (as long as you didn't go to one of ";
-                gameRef.usokText += "those insanely competitive schools where classmates sabotoge ";
-                gameRef.usokText += "each other's work, but that's another game entirely). Anyway, get";
-                gameRef.usokText += " outta here and don't let me see you face again until you're";
-                gameRef.usokText += " holding up an A+ for me.";
+                gameRef.UsokText = "Oh, bother.  It looks like you only scored a ";
+                gameRef.UsokText += examSpinVal + " out of 6 on your exams.  Take time to";
+                gameRef.UsokText += " study up before next turn, because you'll have to";
+                gameRef.UsokText += " take them again.  Better luck next time, kid, everyone";
+                gameRef.UsokText += " will be cheering you on (as long as you didn't go to one of ";
+                gameRef.UsokText += "those insanely competitive schools where classmates sabotoge ";
+                gameRef.UsokText += "each other's work, but that's another game entirely). Anyway, get";
+                gameRef.UsokText += " outta here and don't let me see you face again until you're";
+                gameRef.UsokText += " holding up an A+ for me.";
                 gameRef.setState("UnitedStatesOfOK");
             }
         }

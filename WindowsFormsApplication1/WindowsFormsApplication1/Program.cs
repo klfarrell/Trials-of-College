@@ -19,6 +19,7 @@ namespace WindowsFormsApplication1
             Application.SetCompatibleTextRenderingDefault(false);
             Form1 theform = new Form1();
             UI.Instance.SetForm(theform);
+            UI.Instance.SetDisplayContext(new Menu());
             Application.Run(theform);
         }
     }

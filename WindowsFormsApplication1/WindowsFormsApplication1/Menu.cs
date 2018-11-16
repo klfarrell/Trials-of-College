@@ -51,6 +51,11 @@ namespace WindowsFormsApplication1
             }
         }
 
+        public Menu() {
+            State = "Normal";
+            ResetDetails();
+        }
+
         public string GameName
         {
             get { return _gameName; }
@@ -111,50 +116,58 @@ namespace WindowsFormsApplication1
         public void Number2Clicked(object sender, EventArgs e)
         {
             NumPlayers = 2;
-            State = "NameGame";
         }
 
         public void Number3Clicked(object sender, EventArgs e)
         {
             NumPlayers = 3;
-            State = "NameGame";
         }
 
         public void Number4Clicked(object sender, EventArgs e)
         {
             NumPlayers = 4;
-            State = "NameGame";
         }
 
         public void Number5Clicked(object sender, EventArgs e)
         {
             NumPlayers = 5;
-            State = "NameGame";
         }
 
-        public void MaroonButtonClicked(object sender, EventArgs e)
+        public void NameNumberNextButtonClicked(object sender, EventArgs e)
         {
-            PlayerColor = "Maroon";
+            _currentPlayer = 1;
+            State = "CreatePlayer";
         }
 
-        public void CrimsonButtonClicked(object sender, EventArgs e)
+        public void GameNameChanged(object sender, EventArgs e)
         {
-            PlayerColor = "Crimson";
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+            _gameName = textBox.Text;
         }
 
-        public void PinkButtonClicked(object sender, EventArgs e)
+        public void CeruleanButtonClicked(object sender, EventArgs e)
         {
-            PlayerColor = "Pink";
+            PlayerColor = "Cerulean";
         }
 
-        public void RedButtonClicked(object sender, EventArgs e)
+        public void VermillionButtonClicked(object sender, EventArgs e)
         {
-            PlayerColor = "Red";
+            PlayerColor = "Vermillion";
         }
 
-        public void MagentaButtonClicked(object sender, EventArgs e)
+        public void SaffronButtonClicked(object sender, EventArgs e)
         {
-            PlayerColor = "Magenta";
+            PlayerColor = "Saffron";
+        }
+
+        public void ViridianButtonClicked(object sender, EventArgs e)
+        {
+            PlayerColor = "Viridian";
+        }
+
+        public void IndigoButtonClicked(object sender, EventArgs e)
+        {
+            PlayerColor = "Indigo";
         }
 
         public void CommunityButtonClicked(object sender, EventArgs e)
@@ -172,20 +185,38 @@ namespace WindowsFormsApplication1
             _players.Add(new Player(PlayerName, PlayerColor, 0, PlayerPath ? 2000 : 3000, 0, 0, PlayerPath, false));
             if(CurrentPlayer == NumPlayers)
             {
-                Game game = new Game(_players);
-                UI.Instance.SetDisplayContext(game);
+                //This is the real code but I want Abby's proof of concept to show up after the game is created
+                /*Game game = new Game(_players);
+                UI.Instance.SetDisplayContext(game);*/
+                //Enter exam space demonstration
+                Game newGame = new Game();
+                UI.Instance.SetDisplayContext(newGame);
+                newGame.players = new List<Player>();
+                newGame.players.Add(new Player("Janet", "Green", 51, 0, 0, 0, false, false));
+                newGame.board.getTileAt(newGame.players[newGame.currPlayer].boardPosition).actOnCurrentPlayer();
             }
+            CurrentPlayer++;
+        }
 
+        public void PlayerNameBoxChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+            _playerName = textBox.Text;
         }
 
         public void CreateGameButtonPressed(object sender, EventArgs e)
         {
-            State = "NumberOfPlayers";
+            State = "NameNumber";
         }
 
         public void LoadGameButtonPressed(object sender, EventArgs e)
         {
             State = "LoadGame";
+        }
+
+        public void ViewRulesButtonPressed(object sender, EventArgs e)
+        {
+            State = "Rules";
         }
 
         public void CancelButtonPressed(object sender, EventArgs e)
@@ -196,14 +227,14 @@ namespace WindowsFormsApplication1
 
         private void ResetDetails()
         {
-            _numPlayers = 0;
+            _numPlayers = 2;
             _loadPath = "";
-            _gameName = "";
+            _gameName = "Game1";
             _playerColor = "";
             _playerPath = false;
             _playerName = "";
             _currentPlayer = 1;
-            _players.Clear();
+            _players = new List<Player>();
             onChanged();
         }
 

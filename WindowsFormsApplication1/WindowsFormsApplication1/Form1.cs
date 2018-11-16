@@ -20,9 +20,9 @@ namespace WindowsFormsApplication1
             InitializeComponent();
 
             //The solution to everything
-            try {
+            /*try {
                 loadData();
-            } catch (Exception e) { }
+            } catch (Exception e) { }*/
 
         }
 

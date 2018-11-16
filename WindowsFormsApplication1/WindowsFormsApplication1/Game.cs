@@ -15,8 +15,16 @@ namespace WindowsFormsApplication1
         public int currPlayer { get; set; }
         public Board board = null;
         public Tile tile = null;
-        private String _state= "";
-        public String usokText = "";
+        private String _state = "";
+        private String _usOkText = "";
+        public String UsokText  {
+            get{return _usOkText; }
+            set
+            {
+                _usOkText = value;
+                onChanged();
+            }
+        }
 
         public Game()
         {
@@ -25,6 +33,8 @@ namespace WindowsFormsApplication1
 
         public Game(List<Player> players) {
             this.players = players;
+            board = new Board(this);
+            State = "ExamSpin"; //This should be changed to "normal" when we have it
 
             //TODO other important things that need to be constructed
         }
