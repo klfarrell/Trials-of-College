@@ -10,7 +10,7 @@ namespace WindowsFormsApplication1
     {
         public string playerName { get; set; }
         public string playerColor { get; set; }
-        public uint boardPosition { get; set; }
+        public int boardPosition { get; set; }
         public int numLoans { get; set; }
         public int numFriends { get; set; }
         public int numCredits { get; set; }
@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
         public PlayerCharacteristic club { get; set; }
         public PlayerCharacteristic capstone { get; set; }
 
-        public Player(string _playerName, string _playerColor, uint _boardPosition, int _numLoans, int _numFriends, int _numCredits, bool _isCommunityCollege, bool _isGraduated)
+        public Player(string _playerName, string _playerColor, int _boardPosition, int _numLoans, int _numFriends, int _numCredits, bool _isCommunityCollege, bool _isGraduated)
         {
             playerName = _playerName;
             playerColor = _playerColor;
@@ -49,7 +49,7 @@ namespace WindowsFormsApplication1
             return numCredits;
         }
 
-        public uint getBoardPosition()
+        public int getBoardPosition()
         {
             return boardPosition;
         }

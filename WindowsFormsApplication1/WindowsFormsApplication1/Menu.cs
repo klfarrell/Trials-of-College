@@ -182,7 +182,7 @@ namespace WindowsFormsApplication1
 
         public void SubmitButtonClicked(object sender, EventArgs e)
         {
-            _players.Add(new Player(PlayerName, PlayerColor, 0, PlayerPath ? 2000 : 3000, 0, 0, PlayerPath, false));
+            _players.Add(new Player(PlayerName, PlayerColor, -1, PlayerPath ? 2000 : 3000, 0, 0, PlayerPath, false));
             if(CurrentPlayer == NumPlayers)
             {
                 Game game = new Game(_players);

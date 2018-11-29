@@ -99,6 +99,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -113,6 +114,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\red-minnie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\blue-wings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\confused.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\exam_time.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\game_board.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\green-dino.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\purple-cthulhu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\yellow-pika.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

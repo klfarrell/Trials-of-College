@@ -8,6 +8,24 @@ namespace WindowsFormsApplication1
 {
     class DisplayContentGenerator
     {
+        private const int num_spaces = 65;
+        private const int start_x = 14;
+        private const int start_y = 80;
+        private const int end_x = 130;
+        private const int end_y = 576;
+        private static int[] x_locs = { 119, 242, 358, 480, 601, 719, 843, 960, 1081, 1200, 1286,
+                          1200, 1081, 960, 843, 719, 601, 480, 358, 242, 119, 31,
+                          119, 242, 358, 480, 601, 719, 843, 960, 1081, 1200, 1286,
+                          1200, 1081, 960, 843, 719, 601, 480, 358, 242, 119, 31,
+                          119, 242, 358, 480, 601, 719, 843, 960, 1081, 1200, 1286,
+                          1200, 1081, 960, 843, 719, 601, 480, 358, 242, 119 };
+        private static int[] y_locs = { 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 127,
+                          179, 179, 179, 179, 179, 179, 179, 179, 179, 179, 229,
+                          278, 278, 278, 278, 278, 278, 278, 278, 278, 278, 332,
+                          378, 378, 378, 378, 378, 378, 378, 378, 378, 378, 429,
+                          479, 479, 479, 479, 479, 479, 479, 479, 479, 479, 531,
+                          576, 576, 576, 576, 576, 576, 576, 576, 576, 576 };
+
         public static DisplayContent GenerateMenuContent(Menu menu, ref System.Drawing.Color color)
         {
             if (menu.State.Equals("Normal"))
@@ -510,7 +528,7 @@ namespace WindowsFormsApplication1
             pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             try
             {
-                pictureBox1.Image = ((System.Drawing.Image)(System.Drawing.Image.FromFile("images/game_board.png")));
+                pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.game_board;
             }
             catch (Exception e)
             {
@@ -571,6 +589,26 @@ namespace WindowsFormsApplication1
             button4.UseVisualStyleBackColor = false;
             button4.Click += new System.EventHandler(game.TakeTurn);
 
+            for (int i = 0; i < game.numPlayers; i++)
+            {
+                Player p = game.players[i];
+                System.Windows.Forms.PictureBox gamePiece = new System.Windows.Forms.PictureBox();
+                ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+                gamePiece.BackColor = System.Drawing.Color.White;
+                gamePiece.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.red_minnie; //TODO: SET THIS BASED ON COLOR!
+                int x_loc = p.getBoardPosition() == -1 ? start_x : p.getBoardPosition() >= num_spaces ? end_x : x_locs[p.getBoardPosition()];
+                int y_loc = p.getBoardPosition() == -1 ? start_y : p.getBoardPosition() >= num_spaces ? end_y : y_locs[p.getBoardPosition()];
+                gamePiece.Location = new System.Drawing.Point(x_loc, y_loc);
+                gamePiece.Name = "player" + i;
+                gamePiece.Size = new System.Drawing.Size(74, 68);
+                gamePiece.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                gamePiece.TabIndex = 7 + i;
+                gamePiece.TabStop = false;
+                ((System.ComponentModel.ISupportInitialize)(gamePiece)).EndInit();
+                content.AddControl(gamePiece);
+            }
+
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
 
             color = System.Drawing.Color.MidnightBlue;
@@ -578,7 +616,7 @@ namespace WindowsFormsApplication1
             content.AddControl(button3);
             content.AddControl(button2);
             content.AddControl(button1);
-            content.AddControl(pictureBox1);         
+            content.AddControl(pictureBox1);          
 
             return content;
         }
@@ -635,7 +673,7 @@ namespace WindowsFormsApplication1
             if (!game.CurrentTile().isStopTile())
                 return null;
 
-            pictureBox1.Image = ((System.Drawing.Image)(System.Drawing.Image.FromFile("images/exam_time.jpg")));
+            pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.exam_time;
             pictureBox1.Location = new System.Drawing.Point(44, 44);
             pictureBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             pictureBox1.Name = "pictureBox1";
@@ -771,7 +809,7 @@ namespace WindowsFormsApplication1
             pictureBox1.ErrorImage = null;
             try
             {
-                pictureBox1.Image = ((System.Drawing.Image)(System.Drawing.Image.FromFile("images/confused.jpg")));
+                pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.confused;
             }
             catch( Exception e )
             {

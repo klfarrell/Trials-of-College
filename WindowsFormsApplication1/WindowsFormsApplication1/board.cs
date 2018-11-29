@@ -221,7 +221,7 @@ namespace WindowsFormsApplication1
                 "But are you really that upset about having a new pupper? No.", EventTileType.LOAN, 3000, gameRef );
         }
 
-        public Tile getTileAt( uint position )
+        public Tile getTileAt( int position )
         {
             return ( position < gameTiles.Length ) ? gameTiles[position] : null;
         }
@@ -232,11 +232,11 @@ namespace WindowsFormsApplication1
         public Tile movePlayer( Player p, uint numTiles )
         {
             //if is already at a stop tile and failed the last exam
-            if (getTileAt(p.boardPosition).isStopTile() && !p.passedLastExam)
+            if (p.boardPosition >= 0 && getTileAt(p.boardPosition).isStopTile() && !p.passedLastExam)
                 return getTileAt(p.boardPosition);
 
-            uint numMoved = 1;
-            for ( ; numMoved <= numTiles; numMoved++ )
+            int numMoved = 1;
+            for ( ; numMoved < numTiles; numMoved++ )
             {
                 if ( ( p.boardPosition + numMoved ) == gameTiles.Length || getTileAt( p.boardPosition + numMoved ).isStopTile() )
                     break;

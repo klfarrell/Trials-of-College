@@ -135,6 +135,7 @@ namespace WindowsFormsApplication1
                     //TODO: change state to graduate? call graduate method? idk something here
                     System.Windows.Forms.MessageBox.Show("All done!", "Wow such fun times", System.Windows.Forms.MessageBoxButtons.OK);
                 }
+                onChanged();
             }
         }
     }
