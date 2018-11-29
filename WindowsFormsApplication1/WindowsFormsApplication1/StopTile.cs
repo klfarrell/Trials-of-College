@@ -283,18 +283,21 @@ namespace WindowsFormsApplication1
             System.Windows.Forms.MessageBox.Show(message, caption, buttons);
 
             options = null;
-            //gameRef.setState("Normal"); TODO : switch this back!!!
-            actOnCurrentPlayer();
-
+            gameRef.setState("Normal");
         }
 
         public void GetExamSpin(object sender, EventArgs e)
         {
             examSpinVal = rand.Next(6) + 1;
             if (examSpinVal > 2)
+            {
+                gameRef.CurrentPlayer().passedLastExam = true;
                 chooseCharacteristic(gameRef.CurrentPlayer());
+            }
             else
             {
+                gameRef.CurrentPlayer().passedLastExam = false;
+                gameRef.incrementPlayer();
                 gameRef.UsokText = "Oh, bother.  It looks like you only scored a ";
                 gameRef.UsokText += examSpinVal + " out of 6 on your exams.  Take time to";
                 gameRef.UsokText += " study up before next turn, because you'll have to";

@@ -43,6 +43,14 @@ namespace WindowsFormsApplication1
                     gameRef.CurrentPlayer().numCredits += actionValue;
                     break;
             }
+
+            String display = "Move ";
+            display += gameRef.currSpin;
+            display += " spaces: ";
+            display += text;
+            gameRef.UsokText = display;
+            gameRef.setState("UnitedStatesOfOK");
+            gameRef.incrementPlayer();
         }
 
         public bool isStopTile()

@@ -185,15 +185,8 @@ namespace WindowsFormsApplication1
             _players.Add(new Player(PlayerName, PlayerColor, 0, PlayerPath ? 2000 : 3000, 0, 0, PlayerPath, false));
             if(CurrentPlayer == NumPlayers)
             {
-                //This is the real code but I want Abby's proof of concept to show up after the game is created
-                /*Game game = new Game(_players);
-                UI.Instance.SetDisplayContext(game);*/
-                //Enter exam space demonstration
-                Game newGame = new Game();
-                UI.Instance.SetDisplayContext(newGame);
-                newGame.players = new List<Player>();
-                newGame.players.Add(new Player("Janet", "Green", 51, 0, 0, 0, false, false));
-                newGame.board.getTileAt(newGame.players[newGame.currPlayer].boardPosition).actOnCurrentPlayer();
+                Game game = new Game(_players);
+                UI.Instance.SetDisplayContext(game);
             }
             CurrentPlayer++;
         }

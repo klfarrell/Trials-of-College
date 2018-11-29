@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
         public int numCredits { get; set; }
         public bool isCommunityCollege { get; set; }
         public bool isGraduated { get; set; }
+        public bool passedLastExam { get; set; }
         public PlayerCharacteristic major { get; set; }
         public PlayerCharacteristic club { get; set; }
         public PlayerCharacteristic capstone { get; set; }
@@ -30,6 +31,7 @@ namespace WindowsFormsApplication1
             numCredits = _numCredits;
             isCommunityCollege = _isCommunityCollege;
             isGraduated = _isGraduated;
+            passedLastExam = false;
         }
 
         public int getLoans()

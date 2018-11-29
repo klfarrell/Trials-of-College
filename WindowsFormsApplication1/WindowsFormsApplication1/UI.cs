@@ -39,6 +39,11 @@ namespace WindowsFormsApplication1
             _form = form;
         }
 
+        public bool IsGameContext()
+        {
+            return _context is Game;
+        }
+
         public void Update() {
             DisplayContent content = null;
             System.Drawing.Color color = new System.Drawing.Color();

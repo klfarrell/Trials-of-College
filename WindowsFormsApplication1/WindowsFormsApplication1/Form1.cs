@@ -18,23 +18,23 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
-
-            //The solution to everything
-            /*try {
-                loadData();
-            } catch (Exception e) { }*/
-
         }
 
-        private void saveButtonClicked(object sender, EventArgs e) {
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            String message = UI.Instance.IsGameContext() ? "Are you sure you want to exit? Be sure to save your game first!" :
+                "Going so soon? Are you sure you want to quit?";
+            String heading = UI.Instance.IsGameContext() ? "A kind reminder" : "We're sad";
+            if (MessageBox.Show(message, heading, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                e.Cancel = true;
+        }
 
-            Game newGame = new Game();
-            UI.Instance.SetDisplayContext(newGame);
-            newGame.players = new List<Player>();
-            newGame.players.Add(new Player("Janet", "Green", 51, 0, 0, 0, false, false));
-            newGame.board.getTileAt(newGame.players[newGame.currPlayer].boardPosition).actOnCurrentPlayer();
+        //TODO: THESE SHOULD ALL GO IN MENU.CS OR SOMEWHERE ELSE--> THERE ARE ALREADY FUNCTIONS THERE THAT 
+        // ARE BEING DEFINED AS THE EVENT HANDLERS , ONCE WE DON'T NEED ANY OF THIS CODE, REMOVE IT ALL!!     
+        /*private void saveButtonClicked(object sender, EventArgs e)
+        {
 
-           /* String game_Name;
+            String game_Name;
             int num_players = 0;
 
             if(this.gameNameText.Text == "")
@@ -67,7 +67,6 @@ namespace WindowsFormsApplication1
 
                 serializer.Serialize(file, newGame);
             }
-            */
         }
 
         private void viewPlayerStats(object sender, EventArgs e)
@@ -138,7 +137,7 @@ namespace WindowsFormsApplication1
                 Console.Write("Last saved game is named:" + loadGame?.name);
             }
 
-        }
+        }*/
 
     }
 }

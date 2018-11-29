@@ -231,7 +231,11 @@ namespace WindowsFormsApplication1
         // Note 3: if player reaches the end of the board, returns null
         public Tile movePlayer( Player p, uint numTiles )
         {
-            uint numMoved = 0;
+            //if is already at a stop tile and failed the last exam
+            if (getTileAt(p.boardPosition).isStopTile() && !p.passedLastExam)
+                return getTileAt(p.boardPosition);
+
+            uint numMoved = 1;
             for ( ; numMoved <= numTiles; numMoved++ )
             {
                 if ( ( p.boardPosition + numMoved ) == gameTiles.Length || getTileAt( p.boardPosition + numMoved ).isStopTile() )

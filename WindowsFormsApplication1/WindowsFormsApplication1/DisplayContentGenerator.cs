@@ -28,11 +28,9 @@ namespace WindowsFormsApplication1
         public static DisplayContent GenerateGameContent(Game game, ref System.Drawing.Color color)
         {
             if (game.State.Equals("Normal"))
-                return GenerateNormalGameContent();
+                return GenerateNormalGameContent(game, ref color);
             else if (game.State.Equals("UnitedStatesOfOK"))
                 return GenerateUSOKContent(game, ref color);
-            else if (game.State.Equals("AreYouSure"))
-                return GenerateAreYouSureContent();
             else if (game.State.Equals("ExamSpin"))
                 return GenerateExamSpinContent(game, ref color);
             else if (game.State.Equals("ChoosePC"))
@@ -42,11 +40,6 @@ namespace WindowsFormsApplication1
             else
                 return null;
         }
-
-
-
-
-
 
         //Private methods to make the shit above easier
 
@@ -499,17 +492,93 @@ namespace WindowsFormsApplication1
 
             return content;
         }
-
-
-
-
-
-
         
         //GAME CONTENT
-        private static DisplayContent GenerateNormalGameContent()
+        private static DisplayContent GenerateNormalGameContent(Game game, ref System.Drawing.Color color)
         {
             DisplayContent content = new DisplayContent();
+            
+            System.Windows.Forms.PictureBox pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.Windows.Forms.Button button1 = new System.Windows.Forms.Button();
+            System.Windows.Forms.Button button2 = new System.Windows.Forms.Button();
+            System.Windows.Forms.Button button3 = new System.Windows.Forms.Button();
+            System.Windows.Forms.Button button4 = new System.Windows.Forms.Button();
+
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+
+            pictureBox1.BackColor = System.Drawing.Color.AliceBlue;
+            pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            try
+            {
+                pictureBox1.Image = ((System.Drawing.Image)(System.Drawing.Image.FromFile("images/game_board.png")));
+            }
+            catch (Exception e)
+            {
+                pictureBox1.Image = null;
+            }
+            pictureBox1.Location = new System.Drawing.Point(14, 70);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(1355, 584);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+
+            button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            button1.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button1.ForeColor = System.Drawing.Color.Black;
+            button1.Location = new System.Drawing.Point(14, 9);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(121, 44);
+            button1.TabIndex = 2;
+            button1.Text = "View Rules";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += new System.EventHandler(game.ViewRules);
+
+            button2.BackColor = System.Drawing.Color.LightSkyBlue;
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            button2.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button2.ForeColor = System.Drawing.Color.Black;
+            button2.Location = new System.Drawing.Point(141, 9);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(122, 44);
+            button2.TabIndex = 3;
+            button2.Text = "View Stats";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += new System.EventHandler(game.ViewStats);
+
+            button3.BackColor = System.Drawing.Color.LightSkyBlue;
+            button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            button3.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button3.ForeColor = System.Drawing.Color.Black;
+            button3.Location = new System.Drawing.Point(269, 9);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(126, 44);
+            button3.TabIndex = 4;
+            button3.Text = "Save Game";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += new System.EventHandler(game.SaveGame);
+
+            button4.BackColor = System.Drawing.Color.Firebrick;
+            button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            button4.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button4.ForeColor = System.Drawing.Color.Black;
+            button4.Location = new System.Drawing.Point(557, 671);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(288, 101);
+            button4.TabIndex = 5;
+            button4.Text = game.CurrentPlayer().getPlayerName();
+            button4.Text += ", it's your turn - Spin!";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += new System.EventHandler(game.TakeTurn);
+
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+
+            color = System.Drawing.Color.MidnightBlue;
+            content.AddControl(button4);
+            content.AddControl(button3);
+            content.AddControl(button2);
+            content.AddControl(button1);
+            content.AddControl(pictureBox1);         
 
             return content;
         }
@@ -550,13 +619,6 @@ namespace WindowsFormsApplication1
           
             content.AddControl(button1);
             content.AddControl(label2);
-
-            return content;
-        }
-
-        private static DisplayContent GenerateAreYouSureContent()
-        {
-            DisplayContent content = new DisplayContent();
 
             return content;
         }
@@ -606,7 +668,9 @@ namespace WindowsFormsApplication1
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(609, 54);
             label2.TabIndex = 3;
-            label2.Text = "Stop studying! You\'ve officially reached the end of Year ";
+            label2.Text = "You spun a ";
+            label2.Text += game.currSpin;
+            label2.Text += ": Stop studying! You\'ve officially reached the end of Year ";
             label2.Text += ((StopTile)game.CurrentTile()).getType() == CharacteristicType.MAJOR ? "1" : ((StopTile)game.CurrentTile()).getType() == CharacteristicType.CLUB ? "2" : "3";
             label2.Text += ".  Spin at least a 3 in order to pass your final exams and continue.";
             
