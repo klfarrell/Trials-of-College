@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         private String _state = "";
         private String _usOkText = "";
         private Random rand = null;
+        public int[] gradStats = null;
 
         public String UsokText
         {
@@ -49,6 +50,21 @@ namespace WindowsFormsApplication1
         public Player CurrentPlayer()
         {
             return players[currPlayer];
+        }
+
+        public void Graduate()
+        {
+            gradStats = new int[numPlayers];
+            int currPlayer = 0;
+            foreach (Player p in players)
+            {
+                int loans = p.getLoans();
+                int credits = p.getCredits();
+                int friends = p.getFriends();
+                int total = loans + (credits * 1000) + (friends * 1000);
+                gradStats[currPlayer] = total;
+                currPlayer++;
+            }
         }
 
         public string State
@@ -109,7 +125,6 @@ namespace WindowsFormsApplication1
                 currPlayer = (currPlayer + 1) % numPlayers;
                 return;
             }
-
             currSpin = (uint) rand.Next(6) + 1;
             Tile tile = board.movePlayer(players[currPlayer], currSpin);
 
@@ -124,7 +139,7 @@ namespace WindowsFormsApplication1
                 bool gameFinished = true;
                 foreach (Player p in players)
                 {
-                    if (!players[currPlayer].isGraduated)
+                    if (!p.isGraduated)
                     {
                         gameFinished = false;
                         break;
@@ -132,6 +147,8 @@ namespace WindowsFormsApplication1
                 }
                 if (gameFinished)
                 {
+                    Graduate();
+                    int winner = gradStats.Max();
                     //TODO: change state to graduate? call graduate method? idk something here
                     System.Windows.Forms.MessageBox.Show("All done!", "Wow such fun times", System.Windows.Forms.MessageBoxButtons.OK);
                 }
