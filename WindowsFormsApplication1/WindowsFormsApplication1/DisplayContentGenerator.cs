@@ -673,10 +673,10 @@ namespace WindowsFormsApplication1
                 return null;
 
             pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.exam_time;
-            pictureBox1.Location = new System.Drawing.Point(44, 44);
+            pictureBox1.Location = new System.Drawing.Point(64, 44);
             pictureBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(319, 336);
+            pictureBox1.Size = new System.Drawing.Size(519, 536);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -687,10 +687,10 @@ namespace WindowsFormsApplication1
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             button1.Font = new System.Drawing.Font("Ink Free", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             button1.ForeColor = System.Drawing.Color.Snow;
-            button1.Location = new System.Drawing.Point(443, 315);
+            button1.Location = new System.Drawing.Point(663, 415);
             button1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(545, 65);
+            button1.Size = new System.Drawing.Size(545, 165);
             button1.TabIndex = 1;
             button1.Text = "Spin For Exam Score!";
             button1.UseVisualStyleBackColor = false;
@@ -698,12 +698,12 @@ namespace WindowsFormsApplication1
 
             label2.AutoSize = true;
             label2.BackColor = System.Drawing.Color.IndianRed;
-            label2.Font = new System.Drawing.Font("Ink Free", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(412, 44);
+            label2.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(632, 44);
             label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label2.MaximumSize = new System.Drawing.Size(640, 300);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(609, 54);
+            label2.Size = new System.Drawing.Size(609, 150);
             label2.TabIndex = 3;
             label2.Text = "You spun a ";
             label2.Text += game.currSpin;
@@ -730,6 +730,7 @@ namespace WindowsFormsApplication1
             System.Windows.Forms.Button buttonB = new System.Windows.Forms.Button();
             System.Windows.Forms.Button buttonC = new System.Windows.Forms.Button();
             System.Windows.Forms.Label label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label label2 = new System.Windows.Forms.Label();
             System.Windows.Forms.PictureBox pictureBox1 = new System.Windows.Forms.PictureBox();
 
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -739,54 +740,55 @@ namespace WindowsFormsApplication1
 
             PlayerCharacteristic[] list = ((StopTile)game.CurrentTile()).options;
 
-            buttonA.BackColor = System.Drawing.Color.Yellow;
+            buttonA.BackColor = System.Drawing.Color.MidnightBlue;
             buttonA.Cursor = System.Windows.Forms.Cursors.Hand;
-            buttonA.Font = new System.Drawing.Font("Ink Free", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            buttonA.ForeColor = System.Drawing.Color.MidnightBlue;
-            buttonA.Location = new System.Drawing.Point(76, 300);
+            buttonA.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            buttonA.ForeColor = System.Drawing.Color.LightGray;
+            buttonA.Location = new System.Drawing.Point(321, 603);
             buttonA.Name = "buttonA";
-            buttonA.Size = new System.Drawing.Size(117, 47);
+            buttonA.Size = new System.Drawing.Size(185, 79);
             buttonA.TabIndex = 0;
             buttonA.Text = "Choice A";
             buttonA.UseVisualStyleBackColor = false;
             buttonA.Click += new System.EventHandler(((StopTile)game.CurrentTile()).SetChosenCharacteristicA);
 
-            buttonB.BackColor = System.Drawing.Color.Yellow;
+            buttonB.BackColor = System.Drawing.Color.MidnightBlue;
             buttonB.Cursor = System.Windows.Forms.Cursors.Hand;
-            buttonB.Font = new System.Drawing.Font("Ink Free", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            buttonB.ForeColor = System.Drawing.Color.MidnightBlue;
-            buttonB.Location = new System.Drawing.Point(275, 300);
+            buttonB.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            buttonB.ForeColor = System.Drawing.Color.LightGray;
+            buttonB.Location = new System.Drawing.Point(617, 603);
             buttonB.Name = "buttonB";
-            buttonB.Size = new System.Drawing.Size(117, 47);
-            buttonB.TabIndex = 1;
+            buttonB.Size = new System.Drawing.Size(185, 79);
+            buttonB.TabIndex = 5;
             buttonB.Text = "Choice B";
             buttonB.UseVisualStyleBackColor = false;
             buttonB.Click += new System.EventHandler(((StopTile)game.CurrentTile()).SetChosenCharacteristicB);
 
             if (list.Length > 2)
             {
-                buttonC.BackColor = System.Drawing.Color.Yellow;
+                buttonC.BackColor = System.Drawing.Color.MidnightBlue;
                 buttonC.Cursor = System.Windows.Forms.Cursors.Hand;
-                buttonC.Font = new System.Drawing.Font("Ink Free", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                buttonC.ForeColor = System.Drawing.Color.MidnightBlue;
-                buttonC.Location = new System.Drawing.Point(461, 300);
+                buttonC.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                buttonC.ForeColor = System.Drawing.Color.LightGray;
+                buttonC.Location = new System.Drawing.Point(904, 603);
                 buttonC.Name = "buttonC";
-                buttonC.Size = new System.Drawing.Size(117, 47);
-                buttonC.TabIndex = 2;
+                buttonC.Size = new System.Drawing.Size(185, 79);
+                buttonC.TabIndex = 6;
                 buttonC.Text = "Choice C";
                 buttonC.UseVisualStyleBackColor = false;
                 buttonC.Click += new System.EventHandler(((StopTile)game.CurrentTile()).SetChosenCharacteristicC);
             }
 
             int spinVal = ((StopTile)game.CurrentTile()).examSpinVal;
+
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.LightYellow;
-            label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label1.Font = new System.Drawing.Font("Ink Free", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(10, 34);
-            label1.MaximumSize = new System.Drawing.Size(500, 250);
+            label1.Font = new System.Drawing.Font("Ink Free", 20F);
+            label1.Location = new System.Drawing.Point(238, 65);
+            label1.MaximumSize = new System.Drawing.Size(625, 250);
+            label1.MinimumSize = new System.Drawing.Size(625, 250);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(500, 48);
+            label1.Size = new System.Drawing.Size(625, 250);
             label1.TabIndex = 3;
             label1.Text = "Congrats, " + game.CurrentPlayer().getPlayerName() + "! You scored a ";
             label1.Text += spinVal + " out of 6 and passed your exams ";
@@ -794,38 +796,44 @@ namespace WindowsFormsApplication1
                 spinVal == 5 ? " with flying colors! (your parents are proud)" : " with a perfect score (whatanerd).";
             label1.Text += "Now that you've officially finished another year of school,  it's time to choose a ";
             label1.Text += list[0].getType() == CharacteristicType.MAJOR ? "Major" : list[0].getType() == CharacteristicType.CLUB ? "Club" : "Capstone Experience";
-            label1.Text += "! Please pick from the following options:\nChoice A) ";
-            label1.Text += list[0].getText();
-            label1.Text += "\nChoice B) ";
-            label1.Text += list[1].getText();
+            label1.Text += "! Please pick from the following options:";
+
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.LightYellow;
+            label2.Font = new System.Drawing.Font("Ink Free", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(238, 301);
+            label2.MaximumSize = new System.Drawing.Size(625, 250);
+            label2.MinimumSize = new System.Drawing.Size(625, 250);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(625, 250);
+            label2.TabIndex = 7;
+            label2.Text = "\nChoice A) ";
+            label2.Text += list[0].getText();
+            label2.Text += "\nChoice B) ";
+            label2.Text += list[1].getText();
             if (list.Length > 2)
             {
-                label1.Text += "\nChoice C) ";
-                label1.Text += list[2].getText();
+                label2.Text += "\nChoice C) ";
+                label2.Text += list[2].getText();
             }
+
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
             pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             pictureBox1.ErrorImage = null;
-            try
-            {
-                pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.confused;
-            }
-            catch( Exception e )
-            {
-                pictureBox1.Image = null;
-            }
+            pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.confused;
             pictureBox1.InitialImage = null;
-            pictureBox1.Location = new System.Drawing.Point(516, 34);
+            pictureBox1.Location = new System.Drawing.Point(913, 65);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(149, 146);
+            pictureBox1.Size = new System.Drawing.Size(270, 290);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
 
-            color = System.Drawing.SystemColors.MenuHighlight;
+            color = System.Drawing.Color.SpringGreen;
 
             content.AddControl(pictureBox1);
             content.AddControl(label1);
+            content.AddControl(label2);
             if (list.Length > 2)
                 content.AddControl(buttonC);
             content.AddControl(buttonB);
