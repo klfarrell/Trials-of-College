@@ -596,7 +596,30 @@ namespace WindowsFormsApplication1
                 ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
                 gamePiece.BackColor = System.Drawing.Color.White;
                 gamePiece.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.red_minnie; //TODO: SET THIS BASED ON COLOR!
+                if(p.playerColor == "Cerulean")
+                {
+                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.blue_wings;
+                }
+                else if(p.playerColor == "Veridian")
+                {
+                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.green_dino;
+                }
+                else if(p.playerColor == "Saffron")
+                {
+                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.yellow_pika;
+                }
+                else if(p.playerColor == "Vermillion")
+                {
+                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.red_minnie;
+                }
+                else if(p.playerColor == "Indigo")
+                {
+                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.purple_cthulhu;
+                }
+                else
+                {
+                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.green_dino;
+                }
                 int x_loc = p.getBoardPosition() == -1 ? start_x : p.getBoardPosition() >= num_spaces ? end_x : x_locs[p.getBoardPosition()];
                 int y_loc = p.getBoardPosition() == -1 ? start_y : p.getBoardPosition() >= num_spaces ? end_y : y_locs[p.getBoardPosition()];
                 gamePiece.Location = new System.Drawing.Point(x_loc, y_loc);
