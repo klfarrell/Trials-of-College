@@ -648,38 +648,37 @@ namespace WindowsFormsApplication1
         {
             DisplayContent content = new DisplayContent();
 
-            System.Windows.Forms.Label label2 = new System.Windows.Forms.Label();
-            System.Windows.Forms.Button button1 = new System.Windows.Forms.Button();
+            System.Windows.Forms.Label label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Button button4 = new System.Windows.Forms.Button();
 
-            label2.AutoSize = true;
-            label2.BackColor = System.Drawing.Color.LightGray;
-            label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label2.Font = new System.Drawing.Font("Ink Free", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(39, 39);
-            label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            label2.MaximumSize = new System.Drawing.Size(640, 300);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(611, 56);
-            label2.TabIndex = 3;
-            label2.Text = game.UsokText;
+            button4.BackColor = System.Drawing.Color.MidnightBlue;
+            button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            button4.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button4.ForeColor = System.Drawing.Color.LightGray;
+            button4.Location = new System.Drawing.Point(532, 599);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(288, 101);
+            button4.TabIndex = 5;
+            button4.Text = "Got it!";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += new System.EventHandler(game.BackToNormal);
 
-            button1.BackColor = System.Drawing.Color.DarkSlateGray;
-            button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            button1.Font = new System.Drawing.Font("Ink Free", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            button1.Location = new System.Drawing.Point(508, 301);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(142, 68);
-            button1.TabIndex = 4;
-            button1.Text = "Click To Continue";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += new System.EventHandler(game.BackToNormal);
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.Moccasin;
+            label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            label1.Font = new System.Drawing.Font("Ink Free", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(227, 65);
+            label1.MaximumSize = new System.Drawing.Size(900, 500);
+            label1.MinimumSize = new System.Drawing.Size(900, 500);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(900, 500);
+            label1.TabIndex = 6;
+            label1.Text = game.UsokText;
 
-            color = System.Drawing.Color.Aquamarine;
-          
-            content.AddControl(button1);
-            content.AddControl(label2);
+            color = System.Drawing.Color.Orange;
+
+            content.AddControl(button4);
+            content.AddControl(label1);
 
             return content;
         }
