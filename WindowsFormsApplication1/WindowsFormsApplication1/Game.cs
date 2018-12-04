@@ -26,7 +26,9 @@ namespace WindowsFormsApplication1
                 "you know how CVS receipts are long as shit? you're working towards one of those except it costs $100,000.\r\n" +
                 "To play, you begin by selecting your character name, major, and school choice.\r\n" +
                 "The first player goes based on who has the lowest test score! You know who you are. Accept it.\r\n" +
-                ""; //TODO: WE SHOULD UPDATE THIS TO REFLECT THE RULES FOR GRADUATION OR WHATEVER
+                "You progress through the game by spinning the spinner and moving however many spaces you spin. Don't worry, you can't rip the spinner off the board *COUGH gameoflife COUGH* \r\n" +
+                "As you make your way across the board, you will encounter different events that charge you loans, give you OCC credit, and even give you friends! (if only it was that easy) \r\n" +
+                "When you reach the end of the game, you graduate (hopefully), and the player with the least amount of loans ends up being the 'winner'"; //TODO: WE SHOULD UPDATE THIS TO REFLECT THE RULES FOR GRADUATION OR WHATEVER
 
         public String UsokText
         {
