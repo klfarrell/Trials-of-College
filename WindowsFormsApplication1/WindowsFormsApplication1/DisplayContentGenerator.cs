@@ -943,7 +943,7 @@ namespace WindowsFormsApplication1
                 playerBoxes[idx].Text += game.players[idx].getLoans();
                 playerBoxes[idx].Text += "\r\nNumber of Friends: ";
                 playerBoxes[idx].Text += game.players[idx].getFriends();
-                playerBoxes[idx].Text += "\r\nNumber of Credits:";
+                playerBoxes[idx].Text += "\r\nNumber of Credits: ";
                 playerBoxes[idx].Text += game.players[idx].getCredits();
                 playerBoxes[idx].Text += "\r\nBoard Completion: ";
                 playerBoxes[idx].Text += game.players[idx].getBoardPosition() + 1;
