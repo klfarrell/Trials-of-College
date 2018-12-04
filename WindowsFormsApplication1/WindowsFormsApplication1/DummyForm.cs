@@ -86,5 +86,15 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_3(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,8 +17,16 @@ namespace WindowsFormsApplication1
         public Board board = null;
         private String _state = "";
         private String _usOkText = "";
+        public System.Drawing.Color _usOKLightColor = System.Drawing.Color.Moccasin;
+        public System.Drawing.Color _usOKDarkColor = System.Drawing.Color.Orange;
         private Random rand = null;
         public int[] gradStats = null;
+
+        public static String rules = "\r\nWELCOME TO THE RULES PAGE\r\ni mean it's real simple, you begin your journey towards the rest of your life\r\n" +
+                "you know how CVS receipts are long as shit? you're working towards one of those except it costs $100,000.\r\n" +
+                "To play, you begin by selecting your character name, major, and school choice.\r\n" +
+                "The first player goes based on who has the lowest test score! You know who you are. Accept it.\r\n" +
+                ""; //TODO: WE SHOULD UPDATE THIS TO REFLECT THE RULES FOR GRADUATION OR WHATEVER
 
         public String UsokText
         {
@@ -102,14 +110,15 @@ namespace WindowsFormsApplication1
 
         public void ViewRules(object sender, EventArgs e)
         {
-            //TODO: fill this in!!!
-            System.Windows.Forms.MessageBox.Show("donut cheat kidz", "Wow whatta tight response", System.Windows.Forms.MessageBoxButtons.OK);
+            _usOKLightColor = System.Drawing.Color.Thistle;
+            _usOKDarkColor = System.Drawing.Color.MediumPurple;
+            _usOkText = Game.rules;
+            setState("UnitedStatesOfOK");
         }
 
         public void ViewStats(object sender, EventArgs e)
         {
-            //TODO: fill this in!!!
-            System.Windows.Forms.MessageBox.Show("sum stats 4 u", "Wow whatta tight response", System.Windows.Forms.MessageBoxButtons.OK);
+            setState("Stats");
         }
 
         public void SaveGame(object sender, EventArgs e)

@@ -275,12 +275,6 @@ namespace WindowsFormsApplication1
                     gameRef.CurrentPlayer().capstone = options[index];
                     break;
             }
-            string message = "Charactristic Set from index " + index;
-            string caption = gameRef.CurrentPlayer().getPlayerName();
-            caption += options[index].getType() == CharacteristicType.MAJOR ? "'s Major Set to " : options[index].getType() == CharacteristicType.CLUB ? "'s Club Set to" : "'s Capstone Set to ";
-            caption += options[index].getType() == CharacteristicType.MAJOR ? gameRef.CurrentPlayer().major.getText() : options[index].getType() == CharacteristicType.CLUB ? gameRef.CurrentPlayer().club.getText() : gameRef.CurrentPlayer().capstone.getText();
-            System.Windows.Forms.MessageBoxButtons buttons = System.Windows.Forms.MessageBoxButtons.OK;
-            System.Windows.Forms.MessageBox.Show(message, caption, buttons);
 
             options = null;
             gameRef.setState("Normal");
@@ -298,6 +292,8 @@ namespace WindowsFormsApplication1
             {
                 gameRef.CurrentPlayer().passedLastExam = false;
                 gameRef.incrementPlayer();
+                gameRef._usOKLightColor = System.Drawing.Color.LightSteelBlue;
+                gameRef._usOKDarkColor = System.Drawing.Color.RoyalBlue;
                 gameRef.UsokText = "Oh, bother.  It looks like you only scored a ";
                 gameRef.UsokText += examSpinVal + " out of 6 on your exams.  Take time to";
                 gameRef.UsokText += " study up before next turn, because you'll have to";

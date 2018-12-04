@@ -55,6 +55,8 @@ namespace WindowsFormsApplication1
                 return GenerateChoosePCContent(game, ref color);
             else if (game.State.Equals("DisplayResults"))
                 return GenerateDisplayResultsContent();
+            else if (game.State.Equals("Stats"))
+                return GenerateStatsDisplayContent(game, ref color);
             else
                 return null;
         }
@@ -205,11 +207,7 @@ namespace WindowsFormsApplication1
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(900, 500);
             label1.TabIndex = 6;
-            label1.Text = "\r\nWELCOME TO THE RULES PAGE\r\ni mean it's real simple, you begin your journey towards the rest of your life\r\n" +
-                "you know how CVS receipts are long as shit? you're working towards one of those except it costs $100,000.\r\n" +
-                "To play, you begin by selecting your character name, major, and school choice.\r\n" +
-                "The first player goes based on who has the lowest test score! You know who you are. Accept it.\r\n" +
-                "";
+            label1.Text = Game.rules;
 
             color = System.Drawing.Color.MediumPurple;
 
@@ -662,30 +660,12 @@ namespace WindowsFormsApplication1
                 ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
                 gamePiece.BackColor = System.Drawing.Color.White;
                 gamePiece.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                if(p.playerColor == "Cerulean")
-                {
-                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.blue_wings;
-                }
-                else if(p.playerColor == "Veridian")
-                {
-                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.green_dino;
-                }
-                else if(p.playerColor == "Saffron")
-                {
-                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.yellow_pika;
-                }
-                else if(p.playerColor == "Vermillion")
-                {
-                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.red_minnie;
-                }
-                else if(p.playerColor == "Indigo")
-                {
-                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.purple_cthulhu;
-                }
-                else
-                {
-                    gamePiece.Image = global::WindowsFormsApplication1.Properties.Resources.green_dino;
-                }
+                gamePiece.Image = p.playerColor == "Cerulean" ? global::WindowsFormsApplication1.Properties.Resources.blue_wings :
+                    p.playerColor == "Veridian" ? global::WindowsFormsApplication1.Properties.Resources.green_dino : 
+                    p.playerColor == "Saffron" ? global::WindowsFormsApplication1.Properties.Resources.yellow_pika : 
+                    p.playerColor == "Vermillion" ? global::WindowsFormsApplication1.Properties.Resources.red_minnie : 
+                    p.playerColor == "Indigo" ? global::WindowsFormsApplication1.Properties.Resources.purple_cthulhu : 
+                    global::WindowsFormsApplication1.Properties.Resources.green_dino;
                 int x_loc = p.getBoardPosition() == -1 ? start_x : p.getBoardPosition() >= num_spaces ? end_x : x_locs[p.getBoardPosition()];
                 int y_loc = p.getBoardPosition() == -1 ? start_y : p.getBoardPosition() >= num_spaces ? end_y : y_locs[p.getBoardPosition()];
                 gamePiece.Location = new System.Drawing.Point(x_loc, y_loc);
@@ -730,18 +710,18 @@ namespace WindowsFormsApplication1
             button4.Click += new System.EventHandler(game.BackToNormal);
 
             label1.AutoSize = true;
-            label1.BackColor = System.Drawing.Color.Moccasin;
+            label1.BackColor = game._usOKLightColor;
             label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label1.Font = new System.Drawing.Font("Ink Free", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(227, 65);
-            label1.MaximumSize = new System.Drawing.Size(900, 500);
-            label1.MinimumSize = new System.Drawing.Size(900, 500);
+            label1.Location = new System.Drawing.Point(77, 65);
+            label1.MaximumSize = new System.Drawing.Size(1200, 500);
+            label1.MinimumSize = new System.Drawing.Size(1200, 500);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(900, 500);
+            label1.Size = new System.Drawing.Size(1200, 500);
             label1.TabIndex = 6;
             label1.Text = game.UsokText;
 
-            color = System.Drawing.Color.Orange;
+            color = game._usOKDarkColor;
 
             content.AddControl(button4);
             content.AddControl(label1);
@@ -929,6 +909,109 @@ namespace WindowsFormsApplication1
             content.AddControl(buttonA);
 
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+
+            return content;
+        }
+
+        private static DisplayContent GenerateStatsDisplayContent(Game game, ref System.Drawing.Color color)
+        {
+            DisplayContent content = new DisplayContent();
+
+            System.Windows.Forms.Label[] playerBoxes = new System.Windows.Forms.Label[game.numPlayers];
+            System.Windows.Forms.PictureBox[] playerPics = new System.Windows.Forms.PictureBox[game.numPlayers];
+            var title = new System.Windows.Forms.Label();
+            var ok = new System.Windows.Forms.Button();
+
+            for (int idx = 0; idx < game.numPlayers; idx++)
+            {
+                playerBoxes[idx] = new System.Windows.Forms.Label();
+                playerBoxes[idx].BackColor = System.Drawing.Color.Plum;
+                playerBoxes[idx].Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                playerBoxes[idx].ForeColor = System.Drawing.Color.Black;
+                playerBoxes[idx].Name = "label" + idx;
+                playerBoxes[idx].Size = new System.Drawing.Size(378, 280);
+                playerBoxes[idx].MinimumSize = new System.Drawing.Size(378, 280);
+                playerBoxes[idx].MaximumSize = new System.Drawing.Size(378, 280);
+
+                int x = idx == 0 ? 107 : idx == 1 ? 533 : idx == 2 ? 956 : idx == 3 ? 303 : 748;
+                int y = idx < 3 ? 95 : 380;
+                playerBoxes[idx].Location = new System.Drawing.Point(x, y);
+
+                playerBoxes[idx].Text = "Name: ";
+                playerBoxes[idx].Text += game.players[idx].getPlayerName();
+                playerBoxes[idx].Text += "\r\nLoans taken: $";
+                playerBoxes[idx].Text += game.players[idx].getLoans();
+                playerBoxes[idx].Text += "\r\nNumber of Friends: ";
+                playerBoxes[idx].Text += game.players[idx].getFriends();
+                playerBoxes[idx].Text += "\r\nNumber of Credits:";
+                playerBoxes[idx].Text += game.players[idx].getCredits();
+                playerBoxes[idx].Text += "\r\nBoard Completion: ";
+                playerBoxes[idx].Text += game.players[idx].getBoardPosition() + 1;
+                playerBoxes[idx].Text += "/64\r\nSchool: ";
+                playerBoxes[idx].Text += game.players[idx].isCommunityCollege ? "Community College" : "4-Year College";
+                playerBoxes[idx].Text += "\r\nYear in School: ";
+                playerBoxes[idx].Text += game.players[idx].getBoardPosition() < 23 ? "Freshman" :
+                    game.players[idx].getBoardPosition() < 38 ? "Sophomore" :
+                    game.players[idx].getBoardPosition() < 52 ? "Junior" :
+                    game.players[idx].getBoardPosition() < 64 ? "Senior" : "Graduated";
+                playerBoxes[idx].Text += "\r\nMajor: ";
+                playerBoxes[idx].Text += game.players[idx].major == null ? "TBD" : game.players[idx].major.getText();
+                playerBoxes[idx].Text += "\r\nClub: ";
+                playerBoxes[idx].Text += game.players[idx].club == null ? "TBD" : game.players[idx].club.getText();
+                playerBoxes[idx].Text += "\r\nCapstone: ";
+                playerBoxes[idx].Text += game.players[idx].capstone == null ? "TBD" : game.players[idx].capstone.getText();
+
+                playerPics[idx] = new System.Windows.Forms.PictureBox();
+                ((System.ComponentModel.ISupportInitialize)(playerPics[idx])).BeginInit();
+                playerPics[idx].Image = game.players[idx].playerColor == "Cerulean" ? global::WindowsFormsApplication1.Properties.Resources.blue_wings :
+                    game.players[idx].playerColor == "Veridian" ? global::WindowsFormsApplication1.Properties.Resources.green_dino :
+                    game.players[idx].playerColor == "Saffron" ? global::WindowsFormsApplication1.Properties.Resources.yellow_pika :
+                    game.players[idx].playerColor == "Vermillion" ? global::WindowsFormsApplication1.Properties.Resources.red_minnie :
+                    game.players[idx].playerColor == "Indigo" ? global::WindowsFormsApplication1.Properties.Resources.purple_cthulhu :
+                    global::WindowsFormsApplication1.Properties.Resources.green_dino;
+                playerPics[idx].Name = "pictureBox" + idx;
+                playerPics[idx].BackColor = System.Drawing.Color.LightGray;
+                playerPics[idx].Size = new System.Drawing.Size(73, 63);
+                playerPics[idx].SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                playerPics[idx].TabIndex = 15;
+                playerPics[idx].TabStop = false;
+
+                x = idx == 0 ? 397 : idx == 1 ? 825 : idx == 2 ? 1251 : idx == 3 ? 597 : 1042;
+                y = idx < 3 ? 110 : 393;
+                playerPics[idx].Location = new System.Drawing.Point(x, y);
+            }
+
+            ok.BackColor = System.Drawing.Color.MidnightBlue;
+            ok.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            ok.ForeColor = System.Drawing.Color.LightGray;
+            ok.Location = new System.Drawing.Point(582, 675);
+            ok.Name = "buttonok";
+            ok.Size = new System.Drawing.Size(270, 93);
+            ok.TabIndex = 8;
+            ok.Text = "Continue";
+            ok.UseVisualStyleBackColor = false;
+            ok.Click += new System.EventHandler(game.BackToNormal);
+
+            title.Font = new System.Drawing.Font("Ink Free", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title.ForeColor = System.Drawing.Color.Black;
+            title.Location = new System.Drawing.Point(387, 21);
+            title.Name = "labeltitle";
+            title.Size = new System.Drawing.Size(667, 60);
+            title.TabIndex = 10;
+            title.Text = "Player Statistics";
+            title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+
+            foreach (var pic in playerPics)
+                ((System.ComponentModel.ISupportInitialize)(pic)).EndInit();
+
+            foreach (var pic in playerPics)
+                content.AddControl(pic);
+            foreach (var box in playerBoxes)
+                content.AddControl(box);
+            content.AddControl(title);
+            content.AddControl(ok);
+
+            color = System.Drawing.Color.DarkMagenta;
 
             return content;
         }

@@ -49,6 +49,8 @@ namespace WindowsFormsApplication1
             display += " spaces: ";
             display += text;
             gameRef.UsokText = display;
+            gameRef._usOKLightColor = System.Drawing.Color.Moccasin;
+            gameRef._usOKDarkColor = System.Drawing.Color.Orange;
             gameRef.setState("UnitedStatesOfOK");
             gameRef.incrementPlayer();
         }
