@@ -593,6 +593,7 @@ namespace WindowsFormsApplication1
             System.Windows.Forms.Button button2 = new System.Windows.Forms.Button();
             System.Windows.Forms.Button button3 = new System.Windows.Forms.Button();
             System.Windows.Forms.Button button4 = new System.Windows.Forms.Button();
+            System.Windows.Forms.Button button5 = new System.Windows.Forms.Button();
 
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
 
@@ -641,6 +642,18 @@ namespace WindowsFormsApplication1
             button3.UseVisualStyleBackColor = false;
             button3.Click += new System.EventHandler(game.SaveGame);
 
+            button5.BackColor = System.Drawing.Color.LightSkyBlue;
+            button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            button5.Font = new System.Drawing.Font("Ink Free", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button5.ForeColor = System.Drawing.Color.Black;
+            button5.Location = new System.Drawing.Point(400, 9);
+            button5.Name = "button3";
+            button5.Size = new System.Drawing.Size(128, 44);
+            button5.TabIndex = 4;
+            button5.Text = "Main Menu";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += new System.EventHandler(game.GoToMainMenu);
+
             button4.BackColor = System.Drawing.Color.Firebrick;
             button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             button4.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -682,6 +695,7 @@ namespace WindowsFormsApplication1
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
 
             color = System.Drawing.Color.MidnightBlue;
+            content.AddControl(button5);
             content.AddControl(button4);
             content.AddControl(button3);
             content.AddControl(button2);
@@ -862,9 +876,12 @@ namespace WindowsFormsApplication1
             label1.TabIndex = 3;
             label1.Text = "Congrats, " + game.CurrentPlayer().getPlayerName() + "! You scored a ";
             label1.Text += spinVal + " out of 6 and passed your exams ";
-            label1.Text +=  spinVal == 3 ? "(barely)." : spinVal == 4 ? "with an acceptable amount of mediocrity." : 
-                spinVal == 5 ? " with flying colors! (your parents are proud)" : " with a perfect score (whatanerd).";
-            label1.Text += "Now that you've officially finished another year of school,  it's time to choose a ";
+            label1.Text += spinVal == 3 ? "(barely)." : spinVal == 4 ? "with an acceptable amount of mediocrity." :
+                spinVal == 5 ? " with flying colors! (your parents are proud)." : " with a perfect score (whatanerd).";
+            label1.Text += " Take out ";
+            label1.Text += game.CurrentPlayer().isCommunityCollege ? "$7000" : "$10,000";
+            label1.Text += " in loans to cover tuition for next year, fun stuff! Also, ";
+            label1.Text += "now that you've officially finished another year of school,  it's time to choose a ";
             label1.Text += list[0].getType() == CharacteristicType.MAJOR ? "Major" : list[0].getType() == CharacteristicType.CLUB ? "Club" : "Capstone Experience";
             label1.Text += "! Please pick from the following options:";
 

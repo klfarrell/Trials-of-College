@@ -182,12 +182,16 @@ namespace WindowsFormsApplication1
 
         public void SubmitButtonClicked(object sender, EventArgs e)
         {
-            _players.Add(new Player(PlayerName, PlayerColor, -1, PlayerPath ? 2000 : 3000, 0, 0, PlayerPath, false));
-            if(CurrentPlayer == NumPlayers)
+            _players.Add(new Player(PlayerName, PlayerColor, -1, PlayerPath ? 7000 : 10000, 0, 0, PlayerPath, false));
+            if (CurrentPlayer == NumPlayers)
             {
                 Game game = new Game(_players);
                 UI.Instance.SetDisplayContext(game);
             }
+            _playerColor = "Vermillion";
+            _playerPath = false;
+            _playerName = "";
+            onChanged();
             CurrentPlayer++;
         }
 
@@ -223,7 +227,7 @@ namespace WindowsFormsApplication1
             _numPlayers = 2;
             _loadPath = "";
             _gameName = "Game1";
-            _playerColor = "";
+            _playerColor = "Vermillion";
             _playerPath = false;
             _playerName = "";
             _currentPlayer = 1;

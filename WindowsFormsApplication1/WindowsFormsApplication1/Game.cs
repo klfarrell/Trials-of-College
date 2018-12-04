@@ -172,5 +172,10 @@ namespace WindowsFormsApplication1
                 onChanged();
             }
         }
+
+        public void GoToMainMenu(object sender, EventArgs e)
+        {
+            UI.Instance.SetDisplayContext(new Menu());
+        }
     }
 }

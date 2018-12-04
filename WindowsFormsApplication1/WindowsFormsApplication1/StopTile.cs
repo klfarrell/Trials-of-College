@@ -263,6 +263,7 @@ namespace WindowsFormsApplication1
 
         private void SetChosenCharacteristic(int index)
         {
+            gameRef.CurrentPlayer().numLoans += gameRef.CurrentPlayer().isCommunityCollege ? 7000 : 10000;
             switch (options[index].getType())
             {
                 case CharacteristicType.MAJOR:
@@ -291,6 +292,7 @@ namespace WindowsFormsApplication1
             else
             {
                 gameRef.CurrentPlayer().passedLastExam = false;
+                gameRef.CurrentPlayer().numLoans += 2000;
                 gameRef.incrementPlayer();
                 gameRef._usOKLightColor = System.Drawing.Color.LightSteelBlue;
                 gameRef._usOKDarkColor = System.Drawing.Color.RoyalBlue;
@@ -302,7 +304,7 @@ namespace WindowsFormsApplication1
                 gameRef.UsokText += "those insanely competitive schools where classmates sabotoge ";
                 gameRef.UsokText += "each other's work, but that's another game entirely). Anyway, get";
                 gameRef.UsokText += " outta here and don't let me see you face again until you're";
-                gameRef.UsokText += " holding up an A+ for me.";
+                gameRef.UsokText += " holding up an A+ for me. Oh, and by the way, take out $2000 in loans to take the exam again.";
                 gameRef.setState("UnitedStatesOfOK");
             }
         }
