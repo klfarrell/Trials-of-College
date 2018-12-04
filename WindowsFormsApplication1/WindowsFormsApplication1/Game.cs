@@ -71,7 +71,7 @@ namespace WindowsFormsApplication1
                 int loans = p.getLoans();
                 int credits = p.getCredits();
                 int friends = p.getFriends();
-                int total = loans + (credits * 1000) + (friends * 1000);
+                int total = -loans + (credits * 1000) + (friends * 2000);
                 gradStats[currPlayer] = total;
                 currPlayer++;
             }

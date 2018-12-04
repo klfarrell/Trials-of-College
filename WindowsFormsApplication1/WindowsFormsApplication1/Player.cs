@@ -63,6 +63,18 @@ namespace WindowsFormsApplication1
         {
             return playerColor;
         }
+        public PlayerCharacteristic getMajor()
+        {
+            return major;
+        }
+        public PlayerCharacteristic getCapstone()
+        {
+            return capstone;
+        }
+        public PlayerCharacteristic getClub()
+        {
+            return club;
+        }
     }
 
 }

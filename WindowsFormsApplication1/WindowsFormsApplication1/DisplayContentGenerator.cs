@@ -200,7 +200,7 @@ namespace WindowsFormsApplication1
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.LightGray;
             label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label1.Font = new System.Drawing.Font("Ink Free", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Font = new System.Drawing.Font("Ink Free", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.Location = new System.Drawing.Point(227, 65);
             label1.MaximumSize = new System.Drawing.Size(900, 500);
             label1.MinimumSize = new System.Drawing.Size(900, 500);
@@ -208,6 +208,7 @@ namespace WindowsFormsApplication1
             label1.Size = new System.Drawing.Size(900, 500);
             label1.TabIndex = 6;
             label1.Text = Game.rules;
+            
 
             color = System.Drawing.Color.MediumPurple;
 
