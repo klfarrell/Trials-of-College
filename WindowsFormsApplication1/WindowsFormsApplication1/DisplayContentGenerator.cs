@@ -712,7 +712,7 @@ namespace WindowsFormsApplication1
             label1.AutoSize = true;
             label1.BackColor = game._usOKLightColor;
             label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            label1.Font = new System.Drawing.Font("Ink Free", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Font = new System.Drawing.Font("Ink Free", game._usOKDarkColor == System.Drawing.Color.MediumPurple ? 18F : 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.Location = new System.Drawing.Point(77, 65);
             label1.MaximumSize = new System.Drawing.Size(1200, 500);
             label1.MinimumSize = new System.Drawing.Size(1200, 500);
