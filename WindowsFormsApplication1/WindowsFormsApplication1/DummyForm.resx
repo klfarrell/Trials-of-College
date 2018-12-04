@@ -117,8 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Congrats, Abby! You scored a 6 and passed your exams with flying colors! (your parents are proud) Now that you've officially finished another year of school,  it's time to choose a Capstone Experience! Please pick from the following options:
-</value>
-  </data>
 </root>
