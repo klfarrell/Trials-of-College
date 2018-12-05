@@ -110,6 +110,7 @@ namespace WindowsFormsApplication1
         public void incrementPlayer()
         {
             currPlayer = (currPlayer + 1) % numPlayers;
+             while(players[currPlayer].isGraduated) { currPlayer = (currPlayer + 1) % numPlayers; }
         }
 
         //This needs to get called when anything changes
@@ -185,16 +186,17 @@ namespace WindowsFormsApplication1
                     int winner = gradStats.Max();
                     String myString = "";
                     foreach (Player p in players)
-
+                        currPlayer = 1;
                     {
-                        if(Convert.ToInt32(gradStats[currPlayer]).Equals(Convert.ToInt32(gradStats.Max())))
+                        if(Convert.ToInt32(gradStats[currPlayer-1]).Equals(Convert.ToInt32(gradStats.Max())))
                         {
-                            myString += ("Winner: " + currPlayer + " " + gradStats[currPlayer] + "\n");
+                            myString += ("Winner: " + players[currPlayer-1].playerName + " " + gradStats[currPlayer-1] + "\n");
                         }
                         else
                         {
-                            myString += (" " + currPlayer + " " + gradStats[currPlayer] + "\n");
+                            myString += (" " + players[currPlayer-1].playerName + " " + gradStats[currPlayer-1] + "\n");
                         }
+                        currPlayer++;
                         
                     }
                     UsokText = ("All done! Wow such fun times " +  myString);
