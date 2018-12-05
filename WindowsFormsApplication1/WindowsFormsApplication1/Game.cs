@@ -185,21 +185,21 @@ namespace WindowsFormsApplication1
                     Graduate();
                     int winner = gradStats.Max();
                     String myString = "";
-                    foreach (Player p in players)
-                        currPlayer = 1;
+                    currPlayer = 0;
+                    foreach (Player p in players)                        
                     {
-                        if(Convert.ToInt32(gradStats[currPlayer-1]).Equals(Convert.ToInt32(gradStats.Max())))
+                        if(Convert.ToInt32(gradStats[currPlayer]).Equals(Convert.ToInt32(gradStats.Max())))
                         {
-                            myString += ("Winner: " + players[currPlayer-1].playerName + " " + gradStats[currPlayer-1] + "\n");
+                            myString += ("Winner: " + players[currPlayer].playerName + " is only $" + -gradStats[currPlayer] + " in debt!\n");
                         }
                         else
                         {
-                            myString += (" " + players[currPlayer-1].playerName + " " + gradStats[currPlayer-1] + "\n");
+                            myString += (" " + players[currPlayer].playerName + " is $" + -gradStats[currPlayer] + " in debt\n");
                         }
                         currPlayer++;
                         
                     }
-                    UsokText = ("All done! Wow such fun times " +  myString);
+                    _usOkText = ("All done! Wow such fun times \n" +  myString);
                     State = "DisplayResults";
                     //TODO: change state to graduate? call graduate method? idk something here
                     //System.Windows.Forms.MessageBox.Show("All done!", "Wow such fun times", System.Windows.Forms.MessageBoxButtons.OK);
