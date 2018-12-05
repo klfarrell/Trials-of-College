@@ -85,7 +85,7 @@ namespace WindowsFormsApplication1
                 int majorClub = club.getEarningPotential();
                 var capstone = p.getCapstone();
                 int majorCapstone = major.getEarningPotential();
-                int total = -loans + (credits * 1000) + (friends * 2000);
+                int total = -loans + (credits * 1000) + (friends * 2000) + majorCash + majorClub + majorCapstone; 
                 gradStats[currPlayer] = total;
                 currPlayer++;
             }
@@ -185,6 +185,7 @@ namespace WindowsFormsApplication1
                     int winner = gradStats.Max();
                     String myString = "";
                     foreach (Player p in players)
+
                     {
                         if(Convert.ToInt32(gradStats[currPlayer]).Equals(Convert.ToInt32(gradStats.Max())))
                         {
