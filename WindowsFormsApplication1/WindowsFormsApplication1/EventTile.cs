@@ -14,7 +14,14 @@ namespace WindowsFormsApplication1
         private String text;
         private EventTileType actionType;
         private int actionValue;
-        private Game gameRef;
+        private Game gameRef
+        {
+            get
+            {
+                return Game.current;
+            }
+            set { }
+        }
 
         public EventTile( String _text, EventTileType _actionType, int _actionValue, Game thegame )
         {

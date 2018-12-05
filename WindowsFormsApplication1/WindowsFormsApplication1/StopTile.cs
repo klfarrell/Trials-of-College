@@ -11,12 +11,20 @@ namespace WindowsFormsApplication1
         private PlayerCharacteristic[][] fourYrList;
         private PlayerCharacteristic[][] commList;
         public PlayerCharacteristic[] options = null;
-        private Game gameRef;
+        private Game gameRef
+        {
+            get
+            {
+                return Game.current;
+            }
+            set { }
+        }
         private Random rand;
         public int examSpinVal = -1;
 
         private void chooseCharacteristic( Player p )
         {
+            rand = new Random();
             int[] categories;
             if ( p.isCommunityCollege )
             {
@@ -267,13 +275,13 @@ namespace WindowsFormsApplication1
             switch (options[index].getType())
             {
                 case CharacteristicType.MAJOR:
-                    gameRef.CurrentPlayer().major = options[index];
+                    gameRef.CurrentPlayer().major = (Major)options[index];
                     break;
                 case CharacteristicType.CLUB:
-                    gameRef.CurrentPlayer().club = options[index];
+                    gameRef.CurrentPlayer().club = (Club)options[index];
                     break;
                 case CharacteristicType.CAPSTONE:
-                    gameRef.CurrentPlayer().capstone = options[index];
+                    gameRef.CurrentPlayer().capstone = (Capstone)options[index];
                     break;
             }
 
@@ -283,6 +291,7 @@ namespace WindowsFormsApplication1
 
         public void GetExamSpin(object sender, EventArgs e)
         {
+            rand = new Random();
             examSpinVal = rand.Next(6) + 1;
             if (examSpinVal > 2)
             {

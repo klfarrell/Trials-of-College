@@ -206,11 +206,7 @@ namespace WindowsFormsApplication1
             State = "NameNumber";
         }
 
-        public void LoadGameButtonPressed(object sender, EventArgs e)
-        {
-            State = "LoadGame";
-        }
-
+        
         public void ViewRulesButtonPressed(object sender, EventArgs e)
         {
             State = "Rules";
@@ -235,22 +231,32 @@ namespace WindowsFormsApplication1
             onChanged();
         }
 
-        public void CompleteLoadButtonPressed(object sender, EventArgs e)
+        public void LoadGameButtonPressed(object sender, EventArgs e)
         {
-            var game = LoadGame("\\SaveGame.txt");
-            UI.Instance.SetDisplayContext(game);
+            var game = LoadGame(AppDomain.CurrentDomain.BaseDirectory+ "\\SaveGame.txt");
+            if (game != null)
+            {
+                game.setState("Normal");
+                UI.Instance.SetDisplayContext(game);                
+            }
         }
 
         // Justin's load game implementation
         private Game LoadGame(string path) {
-            Game loadGame;
 
-            using (StreamReader file = File.OpenText(path))
+            Game loadGame = null;
+            if (!File.Exists(path)) return null;
+            try
             {
-                JsonSerializer serializer = new JsonSerializer();
 
-                loadGame = (Game)serializer.Deserialize(file, typeof(Game));
-            }
+                using (StreamReader file = File.OpenText(path))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+
+                    loadGame = (Game)serializer.Deserialize(file, typeof(Game));
+                }
+
+            } catch(Exception e) { }
             return loadGame;
         }
 

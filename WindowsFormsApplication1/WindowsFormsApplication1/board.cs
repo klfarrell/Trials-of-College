@@ -9,7 +9,14 @@ namespace WindowsFormsApplication1
     public class Board
     {
         private Tile[] gameTiles;
-        private Game gameRef;
+        private Game gameRef
+        {
+            get
+            {
+                return Game.current;
+            }
+            set { }
+        }
 
         public Board(Game theGame)
         {

@@ -1,5 +1,7 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ namespace WindowsFormsApplication1
 {
     public class Game : DisplayableContext
     {
+        public static Game current;
         public string name { get; set; }
         public int numPlayers { get; set; }
         public List<Player> players { get; set; }
@@ -40,8 +43,13 @@ namespace WindowsFormsApplication1
             }
         }
 
+        public Game() { /*Do not remove, deserialized games use this*/
+            current = this;
+        }
+
         public Game(List<Player> _players)
         {
+            current = this;
             this.players = _players;
             numPlayers = players.Count;
             currPlayer = 0;
@@ -132,6 +140,14 @@ namespace WindowsFormsApplication1
         public void SaveGame(object sender, EventArgs e)
         {
             //TODO: fill this in!!!
+
+            using (StreamWriter file = File.CreateText(AppDomain.CurrentDomain.BaseDirectory + "\\SaveGame.txt"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+
+                serializer.Serialize(file, this);
+            }
+
             System.Windows.Forms.MessageBox.Show("Saved!", "Wow whatta tight response", System.Windows.Forms.MessageBoxButtons.OK);
         }
 
@@ -142,6 +158,7 @@ namespace WindowsFormsApplication1
                 currPlayer = (currPlayer + 1) % numPlayers;
                 return;
             }
+            rand = new Random();
             currSpin = (uint) rand.Next(6) + 1;
             Tile tile = board.movePlayer(players[currPlayer], currSpin);
 

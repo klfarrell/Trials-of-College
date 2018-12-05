@@ -753,7 +753,7 @@ namespace WindowsFormsApplication1
             System.Windows.Forms.Label label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
 
-            if (!game.CurrentTile().isStopTile())
+            if (game.CurrentTile() == null || !game.CurrentTile().isStopTile())
                 return null;
 
             pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.exam_time;
