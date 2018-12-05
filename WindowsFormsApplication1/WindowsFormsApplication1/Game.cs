@@ -73,7 +73,7 @@ namespace WindowsFormsApplication1
         public void Graduate()
         {
             gradStats = new int[numPlayers];
-            int currPlayer = 0;
+            int idx = 0;
             foreach (Player p in players)
             {
                 int loans = p.getLoans();
@@ -86,8 +86,8 @@ namespace WindowsFormsApplication1
                 var capstone = p.getCapstone();
                 int majorCapstone = major.getEarningPotential();
                 int total = -loans + (credits * 1000) + (friends * 2000) + majorCash + majorClub + majorCapstone; 
-                gradStats[currPlayer] = total;
-                currPlayer++;
+                gradStats[idx] = total;
+                idx++;
             }
         }
 
@@ -185,24 +185,24 @@ namespace WindowsFormsApplication1
                     Graduate();
                     int winner = gradStats.Max();
                     String myString = "";
-                    currPlayer = 0;
+                    int idx = 0;
                     foreach (Player p in players)                        
                     {
-                        if(Convert.ToInt32(gradStats[currPlayer]).Equals(Convert.ToInt32(gradStats.Max())))
+                        if(Convert.ToInt32(gradStats[idx]).Equals(Convert.ToInt32(gradStats.Max())))
                         {
-                            myString += ("Winner: " + players[currPlayer].playerName + " is only $" + -gradStats[currPlayer] + " in debt!\n");
+                            myString += ("Winner: " + players[idx].playerName + " is only $" + -gradStats[idx] + " in debt!\n");
                         }
                         else
                         {
-                            myString += (" " + players[currPlayer].playerName + " is $" + -gradStats[currPlayer] + " in debt\n");
+                            myString += (" " + players[idx].playerName + " is $" + -gradStats[idx] + " in debt\n");
                         }
-                        currPlayer++;
+                        idx++;
                         
                     }
                     _usOkText = ("All done! Wow such fun times \n" +  myString);
-                    State = "DisplayResults";
-                    //TODO: change state to graduate? call graduate method? idk something here
-                    //System.Windows.Forms.MessageBox.Show("All done!", "Wow such fun times", System.Windows.Forms.MessageBoxButtons.OK);
+                    _usOKDarkColor = System.Drawing.Color.LimeGreen;
+                    _usOKLightColor = System.Drawing.Color.LightSteelBlue;
+                    setState("DisplayResults");
                 }
                 onChanged();
             }
