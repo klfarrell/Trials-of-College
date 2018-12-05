@@ -184,17 +184,17 @@ namespace WindowsFormsApplication1
                 {
                     Graduate();
                     int winner = gradStats.Max();
-                    String myString = "";
+                    String myString = "Your total loans, credits, friends, major, club, and capstone were combined and monetized, and your total debt upon graduation was calculated by your local financial aid specialist!\n\n";
                     int idx = 0;
                     foreach (Player p in players)                        
                     {
-                        if(Convert.ToInt32(gradStats[idx]).Equals(Convert.ToInt32(gradStats.Max())))
+                        if(Convert.ToInt32(gradStats[idx]).Equals(Convert.ToInt32(gradStats.Min())))
                         {
-                            myString += ("Winner: " + players[idx].playerName + " is only $" + -gradStats[idx] + " in debt!\n");
+                            myString += ("Financial Winner: " + players[idx].playerName + " is only $" + gradStats[idx] + " in debt!\n");
                         }
                         else
                         {
-                            myString += (" " + players[idx].playerName + " is $" + -gradStats[idx] + " in debt\n");
+                            myString += ("Thriving runner up: " + players[idx].playerName + " is $" + gradStats[idx] + " in debt\n");
                         }
                         idx++;
                         
