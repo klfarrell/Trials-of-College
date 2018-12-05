@@ -8,8 +8,8 @@ namespace WindowsFormsApplication1
 {
     public class Club : PlayerCharacteristic
     {
-        String text;
-        int earningPotential;
+        public String text;
+        public int earningPotential;
 
         public Club( String _text, int _earningPotential )
         {

@@ -8,8 +8,8 @@ namespace WindowsFormsApplication1
 {
     public class Capstone : PlayerCharacteristic
     {
-        String text;
-        int earningPotential;
+        public String text;
+        public int earningPotential;
 
         public Capstone( String _text, int _earningPotential )
         {

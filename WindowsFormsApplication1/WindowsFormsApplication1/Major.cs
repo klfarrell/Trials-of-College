@@ -8,8 +8,8 @@ namespace WindowsFormsApplication1
 { 
     public class Major : PlayerCharacteristic
     {
-        String text;
-        int earningPotential;
+        public String text;
+        public int earningPotential;
 
         public Major( String _text, int _earningPotential )
         {
